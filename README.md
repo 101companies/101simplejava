@@ -1,5 +1,5 @@
-This repo contains SOME 101companies contributions.
+This is a de-centralized repo for 101companies contributions.
 
-Many contributions are maintained in a decentralized manner.
+The repo containts contributions that are easy to build, run, and test.
 
-See the wiki for this github repo for further information.
+See the wiki for the 101companies/101repo github repo for further information.

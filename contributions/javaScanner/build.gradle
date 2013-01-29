@@ -4,7 +4,7 @@ apply plugin: 'eclipse'
 group = 'org.softlang'
 version = '1.0.0'
 
-description = 'Recursive-descent parsing in Java'
+description = 'Excessive illustration of design patterns in Java'
 
 sourceCompatibility = 1.6
 

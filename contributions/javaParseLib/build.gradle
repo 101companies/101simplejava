@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'org.softlang'
+version = '1.0.0'
+
+description = 'Parse companies with parser combinators in Java'
+
+sourceCompatibility = 1.6
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11+'
+}
+
+test {
+    testLogging {
+        exceptionFormat "full"
+        events "passed", "failed", "skipped"
+        showStandardStreams = true
+     }
+}

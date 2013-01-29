@@ -1,4 +1,4 @@
-package pkg101;
+package org.softlang.operations;
 
 import java.util.Iterator;
 
@@ -12,7 +12,7 @@ public class Total {
 
 		// Aggregate salaries
 		double total = 0;
-		
+
 		// Iterate over all salary elements
 		Iterator<?> iterator = doc.getDescendants(new ElementFilter("salary"));
 		while (iterator.hasNext()) {

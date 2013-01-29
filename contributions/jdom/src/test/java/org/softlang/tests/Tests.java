@@ -1,4 +1,4 @@
-package pkg101;
+package org.softlang.tests;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,8 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.junit.Before;
 import org.junit.Test;
+
+import org.softlang.operations.*;
 
 public class Tests {
 

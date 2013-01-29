@@ -1,4 +1,4 @@
-package pkg101;
+package org.softlang.operations;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -10,7 +10,7 @@ import org.jdom.filter.ElementFilter;
 public class Cut {
 
 	public static void cut(Document doc) {
-		
+
 		// Iterate over all salary elements
 		Iterator<?> iterator = doc.getDescendants(new ElementFilter("salary"));
 
@@ -18,7 +18,7 @@ public class Cut {
 		List<Element> elems = new LinkedList<Element>();
 		while (iterator.hasNext())
 			elems.add((Element)iterator.next());
-		
+
 		// Iterate over salary elements and cut salaries
 		for (Element elem : elems) {
 			Double salary = Double.valueOf(elem.getText());

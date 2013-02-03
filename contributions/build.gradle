@@ -1,0 +1,60 @@
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.3'
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+
+	group = 'org.softlang'
+	version = '1.0.0'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+	    testCompile group: 'junit', name: 'junit', version: '4.11+'
+	}
+
+	test {
+    	testLogging {
+    	    exceptionFormat "full"
+    	    events "passed", "failed", "skipped"
+    	    showStandardStreams = true
+     	}
+    }
+}
+
+configure(subprojects.findAll {it.name.startsWith("antlr")}) {
+
+	project.ext.generatedSource = 'build/generated/antlr'
+
+	dependencies {
+		compile group: 'org.antlr', name: 'antlr', version: '3.2'
+	}
+
+	task mkANTLROutputDir << {
+		mkdir(project.ext.generatedSource)
+	}
+
+	task generateFromANTLR(dependsOn: mkANTLROutputDir, type: JavaExec) {
+
+		def antlrDir = 'src/main/antlr'
+
+		inputs.dir file(antlrDir)
+		outputs.dir file(project.ext.generatedSource)
+
+		classpath = compileJava.classpath
+
+		def grammars = fileTree(antlrDir).include('**/*.g')
+
+		main = 'org.antlr.Tool'
+		args = ['-o', project.ext.generatedSource, grammars.files].flatten()
+	}
+
+	compileJava {
+		dependsOn generateFromANTLR
+		source project.ext.generatedSource
+	}
+}

@@ -1,14 +1,7 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
-
-group = 'org.softlang'
-version = '1.0.0'
-
-description = 'A ANTLR-based generator for text-to-object mappings'
+description = 'An ANTLR-based generator for text-to-object mappings'
 
 def yapgSourceDir = 'src/main/java'
-def yapgOutputDir = '$buildDir/generated/yapg'
-def antlrOutputDir = '$buildDir/generated/antlr'
+def antlrOutputDir = 'build/generated/antlr'
 
 sourceSets {
     yapg
@@ -19,45 +12,35 @@ dependencies {
 	compile group: 'org.antlr', name: 'antlr-runtime', version: '3.2'
     antlr3Compile group: 'org.antlr', name: 'antlr', version: '3.2'
     yapgCompile group: 'org.antlr', name: 'antlr', version: '3.2'
-    testCompile group: 'junit', name: 'junit', version: '4.11+'
 }
 
-task createDirs << {
-    mkdir(yapgOutputDir)
+task createDirs {
     mkdir(antlrOutputDir)
+}
 
-task bootstrapANTLR(dependsOn: createDirs, type: JavaExec) {
-
-    def sourceDir = 'src/main/antlr'
-    inputs.dir file(sourceDir)
+task bootstrapAntlr(dependsOn: createDirs, type: JavaExec) {
+    def antlrDir = 'src/main/antlr'
+    inputs.dir file(antlrDir)
     outputs.dir file(antlrOutputDir)
+
+    def grammars = fileTree(antlrDir).include('**/*.g')
 
     main = 'org.antlr.Tool'
     classpath = sourceSets.antlr3.compileClasspath
-    args = ['-o', "${antlrOutputDir}", "${sourceDir}/Grammar.g"]
+    args = ['-o', "${antlrOutputDir}", grammars.files].flatten()
 }
 
-compileYAPG(dependsOn: bootstrapANTLR, type: JavaCompile) {
+task compileYapg(dependsOn: bootstrapAntlr, type: JavaCompile) {
     source yapgSourceDir
-    destinationDir file(yapgOutputDir)
+    destinationDir = sourceSets.yapg.output.classesDir
+    classpath = sourceSets.yapg.compileClasspath
 }
-/*task compileYAPG(dependsOn: bootstrapANTLR, type: JavaCompile) {
-    source 'src/main/java'
-    destinationDir file('$buildDir/generated/yapg')
-    classpath = main.compileClasspath
-}*/
 
-task bootstrapYAPG(dependsOn: compileYAPG, type: JavaExec) {
+task bootstrapYAPG(dependsOn: compileYapg, type: JavaExec) {
 
-    inputs.dir file(antlrOutputDir)
-    outputs.dir file(yapgOutputDir)
+    def yapgDir = 'src/main/yapg'
 
-    classpath = configurations.antlr3
+    classpath = sourceSets.yapg.compileClasspath + sourceSets.yapg.output
     main = 'org.yapg.Main'
-    args = [antlrOutputDir, 'org.yapg.Grammar', 'Grammar']
-}
-
-compileJava {
-    dependsOn bootstrapYAPG
-    source yapgOutputDir
+    args = [yapgDir, 'org.yapg.Grammar', 'Grammar']
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
 import org.junit.Test;
-import static org.softlang.company.CompanyParser.*;
+import static org.softlang.parser.CompanyParser.*;
 
 public class Parsing {
 

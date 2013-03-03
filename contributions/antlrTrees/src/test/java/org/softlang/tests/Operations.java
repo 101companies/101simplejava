@@ -8,9 +8,9 @@ import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.softlang.company.CompanyParser.*;
-import org.softlang.company.Total;
-import org.softlang.company.Cut;
+import static org.softlang.parser.CompanyParser.*;
+import org.softlang.parser.Total;
+import org.softlang.parser.Cut;
 
 public class Operations {
 

@@ -6,7 +6,7 @@ options {
 }
 
 @header {
-package org.softlang.company;
+package org.softlang.parser;
 }
 
 @members {

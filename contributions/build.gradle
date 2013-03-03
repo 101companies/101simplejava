@@ -24,6 +24,15 @@ subprojects {
     	    showStandardStreams = true
      	}
     }
+
+	eclipse.classpath.file {
+		whenMerged {
+			classpath -> classpath.entries.removeAll {
+				entry -> entry.kind == 'src' && entry.path == ''
+			}
+		}
+	}
+
 }
 
 configure(subprojects.findAll {it.name.startsWith("antlr")}) {

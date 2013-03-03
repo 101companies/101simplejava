@@ -37,10 +37,17 @@ subprojects {
 
 configure(subprojects.findAll {it.name.startsWith("antlr")}) {
 
-	project.ext.generatedSource = 'build/generated/antlr'
+	project.ext.generatedSource = 'build/generated/antlr/org/softlang/parser'
 
 	dependencies {
 		compile group: 'org.antlr', name: 'antlr', version: '3.2'
+	}
+
+	eclipse.classpath.file {
+		withXml {
+			def node = it.asNode()
+			node.appendNode('classpathentry', [kind: 'src', path: 'build/generated/antlr'])
+		}
 	}
 
 	task mkANTLROutputDir << {

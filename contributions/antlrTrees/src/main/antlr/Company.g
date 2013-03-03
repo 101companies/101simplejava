@@ -8,14 +8,14 @@ options {
 tokens { COMPANY; DEPT; MANAGER; EMPLOYEE; }
 
 @header {
-package org.softlang.company;
+package org.softlang.parser;
 
 import java.io.IOException;
 import java.io.FileInputStream;
 }
 
 @lexer::header {
-package org.softlang.company;
+package org.softlang.parser;
 }
 
 @members {

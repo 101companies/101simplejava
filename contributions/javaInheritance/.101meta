@@ -43,50 +43,35 @@
  },
  {
   "filename" : "org/softlang/company/Company.java",
-  "fragment" : {
-   "class" : "Company",
-   "method" : "cut"
-  },
+  "fragment" : "class/Company/method/cut",
   "metadata" : {
 	"phrase": ["Cut", "Company"]
   }
  },
  {
   "filename" : "org/softlang/company/Department.java",
-  "fragment" : {
-   "class" : "Department",
-   "method" : "cut"
-  },
+  "fragment" : "class/Department/method/cut",
   "metadata" : {
 	"phrase": ["Cut", "Department"]	
   }
  },
  {
   "filename" : "org/softlang/company/Employee.java",
-  "fragment" : {
-   "class" : "Employee",
-   "method" : "cut"
-  },
+  "fragment" : "class/Employee/method/cut",
   "metadata" : {
 	"phrase": ["Cut", "Employee"]
   }
  },
  {
   "filename" : "org/softlang/features/Serialization.java",
-  "fragment" : {
-   "class" : "Serialization",
-   "method" : "readObject"
-  },
+  "fragment" : "class/Serialization/method/readObject",
   "metadata" : {
 	"phrase": ["Serialize", "Company"]
   }
  },
  {
   "filename" : "org/softlang/features/Serialization.java",
-  "fragment" : {
-   "class" : "Serialization",
-   "method" : "writeObject"
-  },
+  "fragment" : "class/Serialization/method/writeObject",
   "metadata": {
 	"phrase": ["Deserialize", "Company"]
   }

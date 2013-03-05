@@ -61,33 +61,21 @@
   },
   {
     "filename" : "contributions/javaStatic/org/softlang/behavior/Total.java",
-    "fragment" : {
-      "class" : "Total",
-      "method" : "total",
-      "overloaded" : 0
-    },
+    "fragment" : "class/Total/method/total/1",
     "metadata" : { 
       "phrase" : ["Total", "Company"]
     }
   },
   {
     "filename" : "contributions/javaStatic/org/softlang/behavior/Total.java",
-    "fragment" : {
-      "class" : "Total",
-      "method" : "total",
-      "overloaded" : 1
-    },
+    "fragment" : "class/Total/method/total/2",
     "metadata" : { 
       "phrase" : ["Total", "Department"]
     }
   },
   {
     "filename" : "contributions/javaStatic/org/softlang/behavior/Total.java",
-    "fragment" : { 
-      "class" : "Total",
-      "method" : "total",
-      "overloaded" : 2
-    },
+    "fragment" : "class/Total/method/total/2",
     "metadata" : { 
       "phrase" : ["Total", "Employee"]
     }
@@ -100,53 +88,35 @@
   },
   {
     "filename" : "contributions/javaStatic/org/softlang/behavior/Cut.java",
-    "fragment" : {
-      "class" : "Cut",
-      "method" : "cut",
-      "overloaded" : 0
-    },
+    "fragment" : "class/Cut/method/cut/1",
     "metadata" : { 
       "phrase" : ["Cut", "Company"]
     }
   },
   {
     "filename" : "contributions/javaStatic/org/softlang/behavior/Cut.java",
-    "fragment" : {
-      "class" : "Cut",
-      "method" : "cut",
-      "overloaded" : 1
-    },
+    "fragment" : "class/Cut/method/cut/2",
     "metadata" : { 
       "phrase" : ["Cut", "Department"]
     }
   },
   {
     "filename" : "contributions/javaStatic/org/softlang/behavior/Cut.java",
-    "fragment" : { 
-      "class" : "Cut",
-      "method" : "cut",
-      "overloaded" : 2
-    },
+    "fragment" : "class/Cut/method/cut/3",
     "metadata" : { 
       "phrase" : ["Cut", "Employee"]
     }
   },
   {
     "filename" : "contributions/javaStatic/org/softlang/qualities/Serialization.java",
-    "fragment" : {
-      "class" : "Serialization",
-      "method" : "serializeCompany"
-    },
+    "fragment" : "class/Serialization/method/serializeCompany",
     "metadata" : { 
       "phrase" : [ "Serialize", "Company" ]
     }
   },
   {
     "filename" : "contributions/javaStatic/org/softlang/qualities/Serialization.java",
-    "fragment" : {
-      "class" : "Serialization",
-      "method" : "deserializeCompany"
-    },
+    "fragment" : "class/Serialization/method/deserializeCompany",
     "metadata" : { 
       "phrase" : [ "Deserialize", "Company" ]
     }

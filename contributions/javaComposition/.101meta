@@ -43,40 +43,28 @@
   },
   {
     "filename" : "contributions/javaComposition/org/softlang/model/Company.java",
-    "fragment" : {
-      "class" : "Company",
-      "method" : "total"
-    },
+    "fragment" : "class/Company/method/total",
     "metadata" : { 
       "phrase" : ["Total", "Company"]
     }
   },
   {
     "filename" : "contributions/javaComposition/org/softlang/model/Department.java",
-    "fragment" : {
-      "class" : "Department",
-      "method" : "total"
-    },
+    "fragment" : "class/Department/method/total",
     "metadata" : { 
       "phrase" : ["Total", "Department"]
     }
   },
   {
     "filename" : "contributions/javaComposition/org/softlang/model/Company.java",
-    "fragment" : {
-      "class" : "Company",
-      "method" : "cut"
-    },
+    "fragment" : "class/Company/method/cut",
     "metadata" : { 
       "phrase" : ["Cut", "Company"]
     }
   },
   {
     "filename" : "contributions/javaComposition/org/softlang/model/Department.java",
-    "fragment" : {
-      "class" : "Department",
-      "method" : "cut"
-    },
+    "fragment" : "class/Department/method/cut",
     "metadata" : { 
       "phrase" : ["Cut", "Department"]
     }
@@ -84,29 +72,21 @@
   {
     "filename" : "contributions/javaComposition/org/softlang/model/Employee.java",
     "fragment" : { 
-      "class" : "Employee",
-      "method" : "cut"
-    },
+      "class" : "Employee/method/cut",
     "metadata" : { 
       "phrase" : ["Cut", "Employee"]
     }
   },
   {
     "filename" : "contributions/javaComposition/org/softlang/qualities/Serialization.java",
-    "fragment" : {
-      "class" : "Serialization",
-      "method" : "serializeCompany"
-    },
+    "fragment" : "class/Serialization/method/serializeCompany",
     "metadata" : { 
       "phrase" : [ "Serialize", "Company" ]
     }
   },
   {
     "filename" : "contributions/javaComposition/org/softlang/qualities/Serialization.java",
-    "fragment" : {
-      "class" : "Serialization",
-      "method" : "deserializeCompany"
-    },
+    "fragment" : "class/Serialization/method/deserializeCompany",
     "metadata" : { 
       "phrase" : [ "Deserialize", "Company" ]
     }

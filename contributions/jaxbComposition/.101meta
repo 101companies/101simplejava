@@ -1,17 +1,17 @@
 [
   {
     "filename" : "contributions/jaxbComposition/Company.xsd",
-    "fragment" : "/xs:schema/xs:element[@name='company']",
+    "fragment" : "/xs:schema/xs:element/1",
     "metadata" : { "term" : "Company" }
   },
   {
     "filename" : "contributions/jaxbComposition/Company.xsd",
-    "fragment" : "/xs:schema/xs:element[@name='department']",
+    "fragment" : "/xs:schema/xs:element/2",
     "metadata" : { "term" : "Department" }
   },
   { 
     "filename" : "contributions/jaxbComposition/Company.xsd",
-    "fragment" : "/xs:schema/xs:complexType[@name='employee']",
+    "fragment" : "/xs:schema/xs:complexType/3",
     "metadata" : { "term" : "Employee" }
   },
   {

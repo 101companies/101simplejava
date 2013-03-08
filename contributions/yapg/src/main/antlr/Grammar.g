@@ -2,13 +2,13 @@ grammar Grammar;
 options { k = 4; }
 
 @header {
-package org.yapg.grammar;
+package org.softlang.grammar;
 import java.util.List;
 import java.util.LinkedList;
 }
 
 @lexer::header {
-package org.yapg.grammar;
+package org.softlang.grammar;
 }
 @members {
 

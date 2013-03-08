@@ -1,19 +1,19 @@
-package org.yapg;
+package org.softlang.yapg;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.yapg.grammar.Atom;
-import org.yapg.grammar.Choice;
-import org.yapg.grammar.Grammar;
-import org.yapg.grammar.Many;
-import org.yapg.grammar.Nonterminal;
-import org.yapg.grammar.Option;
-import org.yapg.grammar.Production;
-import org.yapg.grammar.Sequence;
-import org.yapg.grammar.Terminal;
+import org.softlang.grammar.Atom;
+import org.softlang.grammar.Choice;
+import org.softlang.grammar.Grammar;
+import org.softlang.grammar.Many;
+import org.softlang.grammar.Nonterminal;
+import org.softlang.grammar.Option;
+import org.softlang.grammar.Production;
+import org.softlang.grammar.Sequence;
+import org.softlang.grammar.Terminal;
 
 /**
  * Code generator for Java/ANTLR code from .yapg specification

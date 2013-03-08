@@ -1,4 +1,4 @@
-package org.yapg.grammar;
+package org.softlang.grammar;
 import java.util.*;
 public class Nonterminal extends Atom {
 	public String label;

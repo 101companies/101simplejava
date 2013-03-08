@@ -1,4 +1,4 @@
-package org.yapg;
+package org.softlang.yapg;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,9 +6,9 @@ import java.io.IOException;
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
-import org.yapg.grammar.Grammar;
-import org.yapg.grammar.GrammarLexer;
-import org.yapg.grammar.GrammarParser;
+import org.softlang.grammar.Grammar;
+import org.softlang.grammar.GrammarLexer;
+import org.softlang.grammar.GrammarParser;
 
 /**
  * CLI access to YAPG

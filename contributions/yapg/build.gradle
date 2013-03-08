@@ -6,58 +6,92 @@ version = '1.0.0'
 
 description = 'A ANTLR-based generator for text-to-object mappings'
 
-def yapgSourceDir = 'src/main/java'
-def yapgOutputDir = '$buildDir/generated/yapg'
-def antlrOutputDir = '$buildDir/generated/antlr'
+dependencies {
+	compile group: 'org.antlr', name: 'antlr', version: '3.2'
+	testCompile group: 'junit', name: 'junit', version: '4.11+'
+	compile files('build/classes/main')
+	compile files('build/generated/yapg')
+}
 
 sourceSets {
-    yapg
-    antlr3
+	antlr3
 }
 
-dependencies {
-	compile group: 'org.antlr', name: 'antlr-runtime', version: '3.2'
-    antlr3Compile group: 'org.antlr', name: 'antlr', version: '3.2'
-    yapgCompile group: 'org.antlr', name: 'antlr', version: '3.2'
-    testCompile group: 'junit', name: 'junit', version: '4.11+'
+eclipse.classpath.file {
+	withXml {
+		def node = it.asNode()
+		node.appendNode('classpathentry', [kind: 'src', path: 'build/generated/yapg'])
+	}
 }
 
-task createDirs << {
-    mkdir(yapgOutputDir)
-    mkdir(antlrOutputDir)
 
-task bootstrapANTLR(dependsOn: createDirs, type: JavaExec) {
+def yapgOutputDir = 'build/generated/yapg'
+def yapgSourceDir = 'src/main/java'
+def antlrMainInputDir = 'src/main/antlr'
+def antlrMainOutputDir = 'build/generated/antlr/org/softlang/grammar'
+def antlrCompanyInputDir = yapgOutputDir
+def antlrCompanyOutputDir = 'build/generated/antlr'
 
-    def sourceDir = 'src/main/antlr'
-    inputs.dir file(sourceDir)
-    outputs.dir file(antlrOutputDir)
-
-    main = 'org.antlr.Tool'
-    classpath = sourceSets.antlr3.compileClasspath
-    args = ['-o', "${antlrOutputDir}", "${sourceDir}/Grammar.g"]
+task mkAntlrDir {
+	mkdir('build/generated/antlr')
 }
 
-compileYAPG(dependsOn: bootstrapANTLR, type: JavaCompile) {
-    source yapgSourceDir
-    destinationDir file(yapgOutputDir)
+task prepareMain (dependsOn: mkAntlrDir, type: JavaExec) {
+	inputs.dir file(antlrMainInputDir)
+	outputs.dir file(antlrMainOutputDir)
+
+	classpath = compileJava.classpath
+
+	main = 'org.antlr.Tool'
+	args = ['-o',antlrMainOutputDir,"${antlrMainInputDir}/Grammar.g"]
 }
-/*task compileYAPG(dependsOn: bootstrapANTLR, type: JavaCompile) {
-    source 'src/main/java'
-    destinationDir file('$buildDir/generated/yapg')
-    classpath = main.compileClasspath
-}*/
 
-task bootstrapYAPG(dependsOn: compileYAPG, type: JavaExec) {
+task compileYapg (dependsOn: prepareMain, type: JavaCompile) {
+	source yapgSourceDir
+	source antlrMainOutputDir
+	destinationDir file('build/classes/main')
 
-    inputs.dir file(antlrOutputDir)
-    outputs.dir file(yapgOutputDir)
+	classpath = compileJava.classpath
+}
 
-    classpath = configurations.antlr3
-    main = 'org.yapg.Main'
-    args = [antlrOutputDir, 'org.yapg.Grammar', 'Grammar']
+task executeYapg (dependsOn: compileYapg, type: JavaExec) {
+	inputs.dir file('src/main/yapg')
+	outputs.dir file(yapgOutputDir)
+
+	classpath = compileJava.classpath
+
+	main = 'org.softlang.yapg.Main'
+	args = ['src/main/yapg','org.softlang.company','Company']
+}
+
+task prepareCompany (dependsOn: executeYapg, type: JavaExec) {
+	inputs.dir file('src/main/yapg')
+	outputs.dir file('src/main/yapg')
+
+	classpath = compileJava.classpath
+
+	main = 'org.antlr.Tool'
+	args = ['-o','src/main/yapg','src/main/yapg/Company.g']
+}
+
+task copyYapgGenerated (dependsOn: prepareCompany, type: Copy) {
+	from 'src/main/yapg'
+	into 'build/generated/yapg/org/softlang/company'
+	include '*.java'
+}
+
+task removeYapgGenerated (dependsOn: copyYapgGenerated, type: Delete) {
+	delete 'src/main/yapg/Company.java'
+	delete 'src/main/yapg/CompanyLexer.java'
+	delete 'src/main/yapg/CompanyParser.java'
+	delete 'src/main/yapg/Department.java'
+	delete 'src/main/yapg/Employee.java'
+	delete 'src/main/yapg/NonManager.java'
+	delete 'src/main/yapg/Company.g'
+	delete 'src/main/yapg/Company.tokens'
 }
 
 compileJava {
-    dependsOn bootstrapYAPG
-    source yapgOutputDir
+	dependsOn removeYapgGenerated
+	source 'build/classes'
 }

@@ -1,12 +1,12 @@
-package org.yapg.tests;
+package org.softlang.tests;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import org.antlr.runtime.*;
 import org.junit.Test;
-import org.yapg.company.CompanyLexer;
-import org.yapg.company.CompanyParser;
+import org.softlang.company.CompanyLexer;
+import org.softlang.company.CompanyParser;
 
 public class Parser {
 

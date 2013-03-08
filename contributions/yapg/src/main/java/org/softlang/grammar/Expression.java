@@ -1,3 +1,3 @@
-package org.yapg.grammar;
+package org.softlang.grammar;
 public abstract class Expression {
 }

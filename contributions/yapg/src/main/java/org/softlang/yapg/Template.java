@@ -1,4 +1,4 @@
-package org.yapg;
+package org.softlang.yapg;
 
 /**
  * Template for code generation in good old "printf" style.

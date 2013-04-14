@@ -16,7 +16,7 @@ public class Total {
 		"inputs" + File.separator + "sample.Company";
 	private static String negSample =
 		"inputs" + File.separator + "nonSample.Company";
-	
+
 	private static double total(String s) throws IOException, RecognitionException {
 		FileInputStream stream = new FileInputStream(s);
         ANTLRInputStream antlr = new ANTLRInputStream(stream);
@@ -27,15 +27,15 @@ public class Total {
         if (parser.error) throw new RecognitionException();
         return parser.total;
 	}
-	
+
 	@Test
 	public void testPositive() throws IOException, RecognitionException {
 		double total = total(posSample);
 	    assertEquals(399747, total, 0);
 	}
-	
+
 	@Test(expected=RecognitionException.class)
-	public void tesNegative() throws IOException, RecognitionException {
+	public void testNegative() throws IOException, RecognitionException {
 		total(negSample);
-	}	
+	}
 }

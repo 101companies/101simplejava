@@ -23,3 +23,11 @@ Eclipse project information can also be generated for all projects by running an
 This command leaves the contributions in a state, ready to be imported into an Eclipse workspace.
 
 NOTE: Windows users should run gradlew.bat instead from a command prompt, not from the Windows Explorer.
+
+If you want to build just a specific contribution, descend into that contributions directory, e.g.
+
+    $ cd contributions/antlrAcceptor
+
+and run the gradlew script from there, i.e.
+
+    $ ../gradlew build

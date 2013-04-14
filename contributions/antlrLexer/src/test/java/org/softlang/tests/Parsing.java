@@ -9,7 +9,7 @@ import org.antlr.runtime.*;
 import org.junit.Test;
 import org.softlang.parser.Company;
 
-public class Total {
+public class Parsing {
 
 	private static String posSample =
 		"inputs" + File.separator + "sample.Company";
@@ -35,7 +35,7 @@ public class Total {
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void tesNegative() throws IOException, RecognitionException {
+	public void testNegative() throws IOException, RecognitionException {
 		total(negSample);
 	}	
 	

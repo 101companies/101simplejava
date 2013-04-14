@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.softlang.parser.CompanyLexer;
 import org.softlang.parser.CompanyParser;
 
-public class Total {
+public class Parsing {
 
 	private static String posSample =
 		"inputs" + File.separator + "sample.Company";

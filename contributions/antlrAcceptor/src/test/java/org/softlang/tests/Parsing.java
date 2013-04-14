@@ -31,7 +31,7 @@ public class Parsing {
 	}
 	
 	@Test(expected=RecognitionException.class)
-	public void tesNegative() throws IOException, RecognitionException {
+	public void testNegative() throws IOException, RecognitionException {
 		acceptCompany(negSample);
 	}	
 }

@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.softlang.company.CompanyLexer;
 import org.softlang.company.CompanyParser;
 
-public class Parser {
+public class Parsing {
 
 	private static String posSample =
 		"inputs" + File.separator + "sample.Company";
@@ -31,7 +31,7 @@ public class Parser {
 	}
 	
 	@Test(expected=RecognitionException.class)
-	public void tesNegative() throws IOException, RecognitionException {
+	public void testNegative() throws IOException, RecognitionException {
 		parse(negSample);
 	}	
 }

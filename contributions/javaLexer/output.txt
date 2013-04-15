@@ -1,4 +1,4 @@
-company "meganalysis" {
+company "ACME Corporation" {
 	department "Research" {
 		manager "Craig" {
 			address "Redmond"

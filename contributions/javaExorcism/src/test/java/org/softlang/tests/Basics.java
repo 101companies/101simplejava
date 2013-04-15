@@ -15,7 +15,7 @@ public class Basics {
 		
 		// Create company
 		Company sampleCompany = f.mkCompany();
-		sampleCompany.setName("meganalysis");
+		sampleCompany.setName("ACME Corporation");
 		
 		// Create all employees
 		Employee craig = f.mkEmployee();

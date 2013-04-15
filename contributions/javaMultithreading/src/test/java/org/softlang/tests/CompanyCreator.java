@@ -31,7 +31,7 @@ public class CompanyCreator {
 	public static Company createCompany() {
 		// Create company
 		Company company = new Company();
-		company.setName("meganalysis");
+		company.setName("ACME Corporation");
 
 		for (int i = 1; i <= WIDTH; i++) {
 			Department dep = new Department();

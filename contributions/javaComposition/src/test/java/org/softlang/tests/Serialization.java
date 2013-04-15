@@ -20,7 +20,7 @@ public class Serialization {
 		
 		// Create company
 		Company sampleCompany = new Company();
-		sampleCompany.setName("meganalysis");
+		sampleCompany.setName("ACME Corporation");
 		
 		// Create all employees
 		Employee craig = new Employee();

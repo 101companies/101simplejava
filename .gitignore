@@ -7,4 +7,4 @@
 
 # Exception for gradle-wrapper
 
-!tools/gradlew/wrapper.jar
+!tools/gradlew-simplejava/wrapper.jar

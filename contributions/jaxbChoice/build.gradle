@@ -1,1 +1,21 @@
 description = 'Object/XML mapping for Java and XSD with JAXB'
+
+// Copy source files to a temporary directory
+task copySource(type: Copy) {
+	mkdir('build/generated/java')
+	from 'src/main/java'
+	into 'build/generated/java'
+	include '*.java'
+}
+
+// Run xjc, ousing the same temporary directory as destination
+task xjc(type: Exec, dependsOn: copySource) {
+	workingDir = '.'
+	commandLine 'xjc'
+	args = ['Company.xsd', '-d', 'build/generated/java']
+}
+
+compileJava {
+	dependsOn 'xjc'
+	source 'build/generated/java'
+} 

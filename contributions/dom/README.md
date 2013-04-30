@@ -1,4 +1,6 @@
-# Intent
-In-memory XML processing with DOM in Java
+This is an implementation of the 101companies System.
 
-For more information visit the [101companies wiki](http://www.101companies.org).
+Headline: In-memory XML processing in Java with DOM
+
+More information: http://101companies.org/wiki/Contribution:dom
+

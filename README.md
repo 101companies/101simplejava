@@ -14,7 +14,7 @@ This is also where the GIT URL is published for cloning or forking the repo.
 
 # Prerequisites
 
-* Java SDK 6+ (with Java SDK binaries in the PATH)
+* Java SDK 6+ (with Java SDK binaries in the PATH or JAVA_HOME set up)
 * Eclipse Juno+ (in case contributions are to be opened in Eclipse)
 
 # Building contributions
@@ -64,4 +64,10 @@ Then, run the following command to build and test the contribution:
 
 # Special notes on Windows
 
-Windows users should run gradlew.bat instead from a command prompt, not from the Windows Explorer. You might also want to check if your JAVA_HOME environment variable is set. Up to Windows 7, you can check on your JAVA_HOME variable [like this](http://stackoverflow.com/questions/2619584/how-to-set-java-home-on-windows-7).
+Use the batchfile "gradlew.bat" instead of the script "gradlew".
+
+Run the batchfile from a command prompt, not from the Windows Explorer.
+
+Check that JDK binaries are in your PATH and/or the JAVA_HOME environment variable is set.
+
+http://stackoverflow.com/questions/2619584/how-to-set-java-home-on-windows-7

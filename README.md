@@ -22,7 +22,7 @@ Eclipse project information can also be generated for all projects by running an
 
 This command leaves the contributions in a state, ready to be imported into an Eclipse workspace.
 
-NOTE: Windows users should run gradlew.bat instead from a command prompt, not from the Windows Explorer.
+NOTE: Windows users should run gradlew.bat instead from a command prompt, not from the Windows Explorer. You might also want to check if your JAVA_HOME environment variable is set. Up to Windows 7, you can check on your JAVA_HOME variable [like this](http://stackoverflow.com/questions/2619584/how-to-set-java-home-on-windows-7).
 
 If you want to build just a specific contribution, descend into that contributions directory, e.g.
 

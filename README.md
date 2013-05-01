@@ -43,7 +43,7 @@ Eclipse project information can be generated for all projects by running another
 
     $ ./gradlew eclipse
 
-This command leaves the contributions in a state,ready to be imported into an Eclipse workspace.
+This command leaves the contributions in a state ready to be imported into an Eclipse workspace.
 
 # Exercising individual contributions
 

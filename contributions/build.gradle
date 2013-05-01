@@ -80,7 +80,6 @@ configure(subprojects.findAll {it.name.startsWith('jaxb')}) {
 
 	task xjc(type: Exec) {
 		mkdir('build/generated/java')
-		workingDir = '.'
 		commandLine 'xjc'
 		args = ['Company.xsd', '-d', 'build/generated/java']
 	}
@@ -89,5 +88,12 @@ configure(subprojects.findAll {it.name.startsWith('jaxb')}) {
 		dependsOn 'xjc'
 		source 'build/generated/java'
 		source 'src/main/java'
+	}
+
+	eclipse.classpath.file {
+		withXml {
+			def node = it.asNode()
+			node.appendNode('classpathentry', [kind: 'src', path: 'build/generated/java'])
+		}
 	}
 }

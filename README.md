@@ -1,8 +1,14 @@
 This repo is conceptually part of 101repo.
 
-This repo containts contributions that are easy to build, run, and test.
+This repo contains Java-based contributions that are easy to build, run, and test.
 
-All contributions are built using [Gradle](www.gradle.org). In order to ease deployment, a wrapper script is installed that downloads and installs gradle locally.
+This repo can be downloaded from here; see ZIP button:
+
+https://github.com/101companies/101simplejava/
+
+This is also where you find the GIT URI for cloning or forking the repo.
+
+Java SDK 6+ is assumed. Java SDK binaries (such as javac) must be in the PATH. All contributions are built using [Gradle](www.gradle.org). In order to ease deployment, a wrapper script is installed that downloads and installs gradle locally.
 
 Go to the contributions folder:
 
@@ -14,11 +20,11 @@ Run the following command:
 
 Then, you can compile and test all projects by running another command:
 
-     $ ./gradlew build
+    $ ./gradlew build
 
 Eclipse project information can also be generated for all projects by running another command:
 
-        $ ./gradlew eclipse
+    $ ./gradlew eclipse
 
 This command leaves the contributions in a state, ready to be imported into an Eclipse workspace.
 

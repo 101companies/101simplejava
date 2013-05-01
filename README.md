@@ -47,7 +47,7 @@ This command leaves the contributions in a state ready to be imported into an Ec
 
 # Exercising individual contributions
 
-You may also run Gradle selectively to build individual contribution folders.
+You may also run Gradle selectively to build individual contributions.
 
 First make sure that you ran Gradle like this at the top:
 

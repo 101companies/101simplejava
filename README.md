@@ -8,7 +8,9 @@ The physical location of this repo is here:
 
 https://github.com/101companies/101simplejava/
 
-This is also where the repo can be downloaded (see the ZIP button) and where the GIT URL is published for cloning or forking the repo.
+This is also where the repo can be downloaded (see the ZIP button).
+
+This is also where the GIT URL is published for cloning or forking the repo.
 
 # Prerequisites
 

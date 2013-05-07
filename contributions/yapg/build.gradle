@@ -98,5 +98,5 @@ task removeYapgGenerated (dependsOn: copyYapgGenerated, type: Delete) {
 
 compileJava {
 	dependsOn removeYapgGenerated
-	source 'build/classes'
+	source 'build/generated/yapg'
 }

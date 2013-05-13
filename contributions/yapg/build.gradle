@@ -36,6 +36,9 @@ eclipse.classpath.file {
 	}
 }
 
+def grammarDir = new File('src/main/java/org/softlang/grammar').getAbsolutePath()
+def companyDir = new File('src/main/java/org/softlang/company').getAbsolutePath()
+
 task cleanYapg << {
 	delete 'src/main/java/org/softlang/company/Company.java'
 	delete 'src/main/java/org/softlang/company/CompanyLexer.java'
@@ -102,7 +105,7 @@ task executeAntlrOnGrammar (type: JavaExec) {
 	classpath = compileJava.classpath
 
 	main = 'org.antlr.Tool'
-	args = ['-o',new File('src/main/java/org/softlang/grammar').getAbsolutePath(),'src/main/java/org/softlang/grammar/Grammar.g']
+	args = ['-o',grammarDir,'src/main/java/org/softlang/grammar/Grammar.g']
 }
 
 	/* compileYapg for execution on Company */
@@ -146,7 +149,7 @@ task executeAntlrOnCompany (dependsOn: executeYapgOnCompany, type: JavaExec) {
 	classpath = compileJava.classpath
 
 	main = 'org.antlr.Tool'
-	args = ['-o',new File('src/main/java/org/softlang/company').getAbsolutePath(),'src/main/java/org/softlang/company/Company.g']
+	args = ['-o',companyDir,'src/main/java/org/softlang/company/Company.g']
 }
 
 	/*

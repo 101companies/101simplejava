@@ -99,6 +99,7 @@ task bootstrap (dependsOn: executeYapgOnGrammar) {}
 		GrammarParser.java
 	*/
 task executeAntlrOnGrammar (type: JavaExec) {
+	println workingDir.toString()
 	inputs.dir file('src/main/java/org/softlang/grammar')
 	outputs.dir file('src/main/java/org/softlang/grammar')
 

@@ -45,7 +45,6 @@ task cleanYapg << {
 	delete 'src/main/java/org/softlang/company/NonManager.java'
 	delete 'src/main/java/org/softlang/company/Company.g'
 	delete 'src/main/java/org/softlang/company/Company.tokens'
-	delete 'src/main/java/org/softlang/grammar/Grammar.g'
 	delete 'src/main/java/org/softlang/grammar/Grammar.tokens'
 }
 
@@ -96,7 +95,7 @@ task bootstrap (dependsOn: executeYapgOnGrammar) {}
 		GrammarLexer.java
 		GrammarParser.java
 	*/
-task executeAntlrOnGrammar (dependsOn: bootstrap, type: JavaExec) {
+task executeAntlrOnGrammar (type: JavaExec) {
 	inputs.dir file('src/main/java/org/softlang/grammar')
 	outputs.dir file('src/main/java/org/softlang/grammar')
 

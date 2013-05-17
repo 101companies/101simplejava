@@ -38,7 +38,7 @@ subprojects {
 
 configure(subprojects.findAll {it.name.startsWith("antlr")}) {
 
-	project.ext.generatedSource = 'build/generated/antlr/org/softlang/parser'
+	project.ext.generatedSource = 'build/generated/antlr/org/softlang/company/antlr'
 
 	dependencies {
 		compile group: 'org.antlr', name: 'antlr', version: '3.2'
@@ -81,7 +81,7 @@ configure(subprojects.findAll {it.name.startsWith('jaxb')}) {
 	task xjc(type: Exec) {
 		mkdir('build/generated/java')
 			commandLine 'xjc'
-		args = ['Company.xsd', '-d', 'build/generated/java']
+		args = ['inputs/Company.xsd', '-d', 'build/generated/java']
 	}
 
 	compileJava {

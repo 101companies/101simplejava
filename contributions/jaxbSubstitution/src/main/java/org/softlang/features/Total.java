@@ -1,27 +1,27 @@
 // A variation that involves subtyping
 
-package org.softlang.features;
+package org.softlang.company.features;
 
 import javax.xml.bind.JAXBElement;
 
-import org.softlang.company.*;
+import org.softlang.company.model.*;
 
 public class Total {
-	
+
 	public static double total(Company c) {
 		double total = 0;
 		for (Department d : c.getDepartment())
 			total += total(d);
 		return total;
 	}
-	
+
 	public static double total(Department d) {
 		double total = total(d.getManager());
 		for (JAXBElement<? extends Subunit> s : d.getSubunit())
 			total += total(s.getValue());
-		return total;		
+		return total;
 	}
-	
+
 	public static double total(Employee e) {
 		return e.getSalary();
 	}
@@ -37,4 +37,5 @@ public class Total {
 			return total(((Employee)s));
 		else throw new IllegalArgumentException();
 	}
+
 }

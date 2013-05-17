@@ -1,4 +1,7 @@
-# Intent
-Exercise XML processing with XPath embedded in Java
+This is an implementation of the 101companies System.
 
-For more information visit the [101companies wiki](http://www.101companies.org).
+Headline: Exercise XML processing with XPath embedded in Java
+
+Documentation: http://101companies.org/wiki/Contribution:xpathAPI
+
+Build instructions: https://github.com/101companies/101simplejava

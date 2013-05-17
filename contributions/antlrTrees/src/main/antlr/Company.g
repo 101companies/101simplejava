@@ -8,14 +8,14 @@ options {
 tokens { COMPANY; DEPT; MANAGER; EMPLOYEE; }
 
 @header {
-package org.softlang.parser;
+package org.softlang.company.antlr;
 
 import java.io.IOException;
 import java.io.FileInputStream;
 }
 
 @lexer::header {
-package org.softlang.parser;
+package org.softlang.company.antlr;
 }
 
 @members {
@@ -30,7 +30,7 @@ public void emitErrorMessage(String msg)
   super.emitErrorMessage(msg);
 }
 
-public static company_return parse(String s) throws IOException, RecognitionException {
+public static company_return parseCompany(String s) throws IOException, RecognitionException {
     FileInputStream stream = new FileInputStream(s);
     ANTLRInputStream antlr = new ANTLRInputStream(stream);
     CompanyLexer lexer = new CompanyLexer(antlr);

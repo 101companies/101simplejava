@@ -5,19 +5,19 @@ options {
 }
 
 @header {
-package org.softlang.parser;
-import org.softlang.company.*;
+package org.softlang.company.antlr;
+import org.softlang.company.model.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 }
 
 @lexer::header {
-package org.softlang.parser;
+package org.softlang.company.antlr;
 }
 
 @members {
-public static Company parse(String s) throws IOException, RecognitionException {
+public static Company parseCompany(String s) throws IOException, RecognitionException {
     FileInputStream stream = new FileInputStream(s);
     ANTLRInputStream antlr = new ANTLRInputStream(stream);
     CompanyLexer lexer = new CompanyLexer(antlr);

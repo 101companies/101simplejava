@@ -1,4 +1,7 @@
-# Intent
-Modular programming with visitors in Java
+This is an implementation of the 101companies System.
 
-For more information visit the [101companies wiki](http://www.101companies.org).
+Headline: Modular Programming with visitors in Java
+
+Documentation: http://101companies.org/wiki/Contribution:javaVisitor
+
+Build instructions: https://github.com/101companies/101simplejava

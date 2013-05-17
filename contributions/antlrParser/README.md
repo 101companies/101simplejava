@@ -1,1 +1,7 @@
-See the [101companies wiki](http://www.101companies.org).
+This is an implementation of the 101companies System.
+
+Headline: Processing textual syntax with semantic actions of ANTLR
+
+Documentation: http://101companies.org/wiki/Contribution:antlrParser
+
+Build instructions: https://github.com/101companies/101simplejava

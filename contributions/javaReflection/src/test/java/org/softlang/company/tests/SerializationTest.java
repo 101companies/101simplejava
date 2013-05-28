@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SerializationTest {
 
     @Test
-    public void testUnparsing() {
+    public void testSerialization() {
         new File("build" + File.separator + "outputs").mkdir();
         Company c = readCompany("inputs" + File.separator + "sampleCompany.ser");
         writeCompany(c,"build/outputs" + File.separator + "testCompany.ser");

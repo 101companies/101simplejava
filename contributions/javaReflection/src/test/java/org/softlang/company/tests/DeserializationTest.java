@@ -7,7 +7,7 @@ import org.junit.Test;
 public class DeserializationTest {
 
     @Test
-    public void testParsing() {
+    public void testDeserialization() {
         readCompany("inputs" + File.separator + "sampleCompany.ser");
     }
 }

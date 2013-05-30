@@ -13,7 +13,7 @@ public class TotalTest {
     @Test
     public void testTotal() throws Exception {
         Total handler = new Total();
-        parse(handler, "inputs/sampleCompany.xml");
+        parse(handler, "inputs" + File.separator + "sampleCompany.xml");
         assertEquals(399747, handler.getTotal(), 0);
     }
 

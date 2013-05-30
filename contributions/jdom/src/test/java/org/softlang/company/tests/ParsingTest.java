@@ -1,7 +1,6 @@
 package org.softlang.company.tests;
 
 import static org.softlang.company.features.Parsing.*;
-import org.softlang.company.features.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +8,6 @@ import java.io.IOException;
 import org.jdom.Document;
 import org.jdom.JDOMException;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class ParsingTest {

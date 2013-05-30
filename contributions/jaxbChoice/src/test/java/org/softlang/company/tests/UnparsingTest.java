@@ -10,7 +10,6 @@ import javax.xml.stream.XMLStreamException;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.Before;
 
@@ -32,8 +31,8 @@ public class UnparsingTest {
         FileNotFoundException,
         XMLStreamException
     {
-        new File("build" + File.separator + "outputs").mkdir();
-        File out = new File("build" + File.separator + "outputs" + File.separator + "sampleCompany.tmp");
+        new File("outputs").mkdir();
+        File out = new File("outputs" + File.separator + "sampleCompany.tmp");
         serializeCompany(out, c);
         c = deserializeCompany(out);
     }

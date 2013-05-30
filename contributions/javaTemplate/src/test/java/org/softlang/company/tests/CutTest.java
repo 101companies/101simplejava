@@ -6,9 +6,6 @@ import org.softlang.company.features.Total;
 import org.softlang.company.model.Company;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 
 import static org.junit.Assert.*;
 import org.junit.*;

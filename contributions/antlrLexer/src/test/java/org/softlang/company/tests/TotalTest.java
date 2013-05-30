@@ -1,12 +1,10 @@
 package org.softlang.company.tests;
 
-import org.softlang.company.antlr.Company;
 import org.softlang.company.features.Total;
 
 import org.antlr.runtime.*;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
@@ -18,10 +16,6 @@ public class TotalTest {
         "inputs"
         + File.separator
         + "sample.Company";
-    private static String negSample =
-        "inputs"
-        + File.separator
-        + "nonSample.Company";
 
     @Test
     public void testTotal()

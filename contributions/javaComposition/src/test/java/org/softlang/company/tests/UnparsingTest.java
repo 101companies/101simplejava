@@ -202,9 +202,9 @@ public class UnparsingTest {
     @Test
     public void testLoadAndCreate() {
         Company sampleCompany = createCompany();
-        new File("build/outputs").mkdir();
-        serializeCompany(sampleCompany, "build/outputs/sampleCompany.ser");
-        Company loadedCompany = deserializeCompany("build/outputs/sampleCompany.ser");
+        new File("outputs").mkdir();
+        serializeCompany(sampleCompany, "outputs/sampleCompany.ser");
+        Company loadedCompany = deserializeCompany("outputs/sampleCompany.ser");
         assertTrue(structurallyEqual(sampleCompany, loadedCompany));
     }
 

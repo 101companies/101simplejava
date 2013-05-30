@@ -1,6 +1,6 @@
-package org.softlang.company.features.javaf.syb;
+package javaf.syb;
 
-import org.softlang.company.features.javaf.prelude.*;
+import javaf.prelude.*;
 
 import java.lang.reflect.*;
 import java.util.List;

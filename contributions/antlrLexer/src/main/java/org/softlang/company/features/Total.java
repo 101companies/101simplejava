@@ -4,7 +4,6 @@ import org.softlang.company.antlr.Company;
 
 import org.antlr.runtime.*;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 

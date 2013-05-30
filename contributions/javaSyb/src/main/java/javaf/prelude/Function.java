@@ -1,4 +1,4 @@
-package org.softlang.company.features.javaf.prelude;
+package javaf.prelude;
 
 /**
  * A function has an argument and a result.

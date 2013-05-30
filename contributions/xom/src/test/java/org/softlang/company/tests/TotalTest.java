@@ -3,7 +3,6 @@ package org.softlang.company.tests;
 import static org.softlang.company.features.Total.*;
 import static org.softlang.company.features.Parsing.*;
 
-import nu.xom.Builder;
 import nu.xom.Element;
 import nu.xom.ParsingException;
 import nu.xom.ValidityException;
@@ -21,7 +20,7 @@ public class TotalTest {
 
     @Before
     public void init() throws ValidityException, ParsingException, IOException {
-        docRoot = parseCompany("inputs/sampleCompany.xml");
+        docRoot = parseCompany("inputs" + File.separator + "sampleCompany.xml");
     }
 
     @Test

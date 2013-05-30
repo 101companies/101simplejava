@@ -1,4 +1,4 @@
-package org.softlang.company.features.javaf.prelude;
+package javaf.prelude;
 
 /**
  * An action has an argument but no result.

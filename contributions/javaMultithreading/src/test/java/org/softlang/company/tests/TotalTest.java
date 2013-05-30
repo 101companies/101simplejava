@@ -1,8 +1,6 @@
 package org.softlang.company.tests;
 
 import static org.softlang.company.features.Total.*;
-import org.softlang.company.features.action.CutAction;
-import org.softlang.company.features.action.TotalAction;
 import org.softlang.company.model.Company;
 
 import static org.junit.Assert.assertEquals;

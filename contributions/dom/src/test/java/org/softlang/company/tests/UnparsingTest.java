@@ -19,7 +19,7 @@ public class UnparsingTest {
         + File.separator
         + "sampleCompany.xml";
     private static String output =
-        "build/outputs"
+        "outputs"
         + File.separator
         + "output.xml";
 
@@ -28,11 +28,11 @@ public class UnparsingTest {
         Document doc = Parsing.loadDocument(sampleCompany);
         double totalPre = total(doc);
         cut(doc);
-        new File("build/outputs").mkdir();
+        new File("outputs").mkdir();
         Unparsing.saveDocument(doc,output);
         Document cutDoc = Parsing.loadDocument(output);
         double total = total(cutDoc);
-        assertEquals(199873.5, total, 0);
+        assertEquals(totalPre / 2.0, total, 0);
     }
 
 }

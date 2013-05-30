@@ -1,8 +1,9 @@
 package org.softlang.company.features;
 
-import static org.softlang.company.features.javaf.syb.Query.*;
 import org.softlang.company.model.*;
-import org.softlang.company.features.javaf.prelude.*;
+
+import static javaf.syb.Query.*;
+import javaf.prelude.*;
 
 public class Total {
 

@@ -1,6 +1,8 @@
 package org.softlang.company.tests;
 
 import org.softlang.company.model.*;
+import org.softlang.company.features.Cut;
+import org.softlang.company.features.Total;
 import static org.softlang.company.features.Parsing.*;
 import static org.softlang.company.features.Unparsing.*;
 
@@ -14,7 +16,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.Before;
 
-public class UnparsingTest {
+public class CutTest {
 
     private static String sampleCompany = "inputs" + File.separator + "sampleCompany.xml";
     private Company c;
@@ -32,10 +34,14 @@ public class UnparsingTest {
         FileNotFoundException,
         XMLStreamException
     {
-        new File("build" + File.separator + "outputs").mkdir();
-        File out = new File("build" + File.separator + "outputs" + File.separator + "sampleCompany.tmp");
-        serializeCompany(out, c);
-        c = deserializeCompany(out);
+        new File("outputs").mkdir();
+        Cut.cut(c);
+        File tmp = new File("outputs" + File.separator + "cutCompany.tmp");
+        serializeCompany(tmp, c);
+        c = deserializeCompany(tmp);
+        Double total = Total.total(c);
+        assertEquals(399747 / 2.0d, total, 0);
+        tmp.delete();
     }
 
 }

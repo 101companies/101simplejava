@@ -202,9 +202,9 @@ public class UnparsingTest {
     @Test
     public void testLoadAndCreate() {
         Company sampleCompany = createCompany();
-        new File("build/outputs").mkdir();
-        writeObject(sampleCompany, "build/outputs/sampleCompany.ser");
-        Company loadedCompany = readObject("build/outputs/sampleCompany.ser");
+        new File("outputs").mkdir();
+        writeObject(sampleCompany, "outputs/sampleCompany.ser");
+        Company loadedCompany = readObject("outputs/sampleCompany.ser");
         assertTrue(structurallyEqual(sampleCompany, loadedCompany));
     }
 

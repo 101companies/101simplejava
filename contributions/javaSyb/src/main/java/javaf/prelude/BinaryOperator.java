@@ -1,4 +1,4 @@
-package org.softlang.company.features.javaf.prelude;
+package javaf.prelude;
 
 /**
  * This is essentially a binary operator, say a function with two arguments where argument types and result type coincide.

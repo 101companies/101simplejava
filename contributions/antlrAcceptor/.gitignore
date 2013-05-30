@@ -1,1 +1,8 @@
 *.class
+.gradle/
+.settings/
+.classpath
+.project
+bin/
+build/
+src/main/java/org/softlang/company/antlr

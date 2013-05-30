@@ -2,7 +2,6 @@ package org.softlang.company.tests;
 
 import static org.softlang.company.features.Parsing.*;
 import org.softlang.company.features.recognizer.RecognitionException;
-import org.softlang.company.features.recognizer.Recognizer;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -34,8 +34,9 @@ public class CutTest {
         FileNotFoundException,
         XMLStreamException
     {
+        new File("outputs").mkdir();
         Cut.cut(c);
-        File tmp = new File("sampleCompany.tmp");
+        File tmp = new File("outputs" + File.separator + "cutCompany.tmp");
         serializeCompany(tmp, c);
         c = deserializeCompany(tmp);
         Double total = Total.total(c);

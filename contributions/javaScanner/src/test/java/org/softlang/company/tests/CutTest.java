@@ -18,10 +18,10 @@ public class CutTest {
 
     @Test
     public void testCut() throws IOException {
-	    new File("build" + File.separator + "outputs").mkdir();
+	    new File("outputs").mkdir();
         Cut cut = new Cut();
-        cut.cut(sampleCompany,"build" + File.separator + "output.txt");
-        double total = total("build" + File.separator + "output.txt");
+        cut.cut(sampleCompany,"outputs" + File.separator + "output.txt");
+        double total = total("outputs" + File.separator + "output.txt");
         assertEquals(399747 / 2.0d, total, 0);
     }
 

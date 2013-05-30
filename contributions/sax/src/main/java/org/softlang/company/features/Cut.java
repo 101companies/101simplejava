@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 
 public class Cut extends DefaultHandler {
 
-    private static String ns = "http://www.softlang.org/company.xsd";
+    private static String ns = "http://www.company.softlang.org/model.xsd";
     private static XMLOutputFactory factory = XMLOutputFactory.newInstance();
     private XMLStreamWriter writer;
     private boolean isSalary = false;

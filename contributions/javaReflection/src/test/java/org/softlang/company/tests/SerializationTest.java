@@ -9,9 +9,9 @@ public class SerializationTest {
 
     @Test
     public void testSerialization() {
-        new File("build" + File.separator + "outputs").mkdir();
+        new File("outputs").mkdir();
         Company c = readCompany("inputs" + File.separator + "sampleCompany.ser");
-        writeCompany(c,"build/outputs" + File.separator + "testCompany.ser");
-		readCompany("build/outputs" + File.separator + "testCompany.ser");
+        writeCompany(c,"outputs" + File.separator + "testCompany.ser");
+		readCompany("outputs" + File.separator + "testCompany.ser");
     }
 }

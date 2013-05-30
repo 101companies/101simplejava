@@ -1,6 +1,5 @@
 package org.softlang.company.features;
 
-import org.softlang.company.antlr.TotalCompany;
 import org.softlang.company.antlr.CutCompany;
 
 import org.antlr.runtime.*;

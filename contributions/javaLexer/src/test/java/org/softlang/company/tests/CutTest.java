@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class CutTest {
@@ -17,15 +16,13 @@ public class CutTest {
         + File.separator
         + "sample.Company";
     private static String outputCompany =
-        "build"
-        + File.separator
-        + "outputs"
+        "outputs"
         + File.separator
         + "cutSample.Company";
 
     @Test
     public void testCut() throws IOException {
-        new File("build" + File.separator + "outputs").mkdir();
+        new File("outputs").mkdir();
         new Cut(sampleCompany,outputCompany);
         Total total = new Total(outputCompany);
         assertEquals(399747 / 2.0d, total.getTotal(), 0);

@@ -1,14 +1,10 @@
 package org.softlang.company.features;
 
 import static org.softlang.company.antlr.CompanyParser.*;
-import org.softlang.company.antlr.CompanyLexer;
-import org.softlang.company.antlr.CompanyParser;
 
 import org.antlr.runtime.tree.CommonTree;
-import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.runtime.*;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Parsing {

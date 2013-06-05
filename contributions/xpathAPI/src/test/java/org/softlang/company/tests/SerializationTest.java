@@ -30,13 +30,11 @@ public class SerializationTest {
     @Test
     public void testSerialization() throws Exception {
         Document doc = loadDocument(sampleCompany);
-        double totalPre = total(doc);
-		cutAllEmployees(doc);
         new File("outputs").mkdir();
         saveDocument(doc,output);
-        Document cutDoc = loadDocument(output);
-        double total = total(cutDoc);
-        assertEquals(totalPre / 2.0, total, 0);
+        Document loadedDoc = loadDocument(output);
+        double total = total(loadedDoc);
+        assertEquals(399747, total, 0);
     }
 
 }

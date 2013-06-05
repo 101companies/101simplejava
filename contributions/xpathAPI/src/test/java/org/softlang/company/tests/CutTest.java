@@ -2,7 +2,7 @@ package org.softlang.company.tests;
 
 import static org.softlang.company.features.Total.*;
 import static org.softlang.company.features.Cut.*;
-import static org.softlang.company.features.Parsing.*;
+import static org.softlang.company.features.Serialization.*;
 
 import org.w3c.dom.Document;
 
@@ -17,7 +17,7 @@ public class CutTest {
 
     @Test
     public void testCutAllEmployees() throws Exception {
-        Document doc = parseDocument(sampleCompany);
+        Document doc = loadDocument(sampleCompany);
         cutAllEmployees(doc);
         double total = total(doc);
         assertEquals(199873.5, total, 0);
@@ -25,7 +25,7 @@ public class CutTest {
 
     @Test
     public void testCutManagersOnly() throws Exception {
-        Document doc = parseDocument(sampleCompany);
+        Document doc = loadDocument(sampleCompany);
         cutManagersOnly(doc);
         double total = total(doc);
         assertEquals(207835.0, total, 0);

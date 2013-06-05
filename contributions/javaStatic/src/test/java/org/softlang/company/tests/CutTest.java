@@ -2,7 +2,7 @@ package org.softlang.company.tests;
 
 import static org.softlang.company.features.Cut.*;
 import static org.softlang.company.features.Total.*;
-import static org.softlang.company.features.Parsing.*;
+import static org.softlang.company.features.Serialization.*;
 import org.softlang.company.model.Company;
 
 import java.io.File;

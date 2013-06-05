@@ -1,5 +1,7 @@
 package org.softlang.company.features.sax;
 
+import static org.softlang.company.features.Parsing.*;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -83,9 +85,9 @@ public class Tracer extends DefaultHandler
         }
         System.out.print("\"\n");
     }
-
+/*
     public static void main (String args[]) throws Exception {
-        SAXUtilities.parse(new Tracer(), "Year2008.xml");
+        parse(new Tracer(), "Year2008.xml");
     }
-
+*/
 }

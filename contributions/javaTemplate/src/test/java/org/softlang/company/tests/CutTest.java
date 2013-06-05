@@ -1,6 +1,6 @@
 package org.softlang.company.tests;
 
-import static org.softlang.company.features.Parsing.*;
+import static org.softlang.company.features.Serialization.*;
 import org.softlang.company.features.Cut;
 import org.softlang.company.features.Total;
 import org.softlang.company.model.Company;
@@ -14,7 +14,7 @@ public class CutTest {
 
     @Test
     public void testCut() {
-        Company c = readCompany("inputs" + File.separator + "sampleCompany.ser");
+        Company c = deserializeCompany("inputs" + File.separator + "sampleCompany.ser");
         Total total = new Total();
         Cut cut = new Cut();
         double before = total.reduce(c);

@@ -1,7 +1,7 @@
 package org.softlang.company.tests;
 
 import static org.softlang.company.features.Total.*;
-import org.softlang.company.features.Parsing;
+import org.softlang.company.features.Serialization;
 
 import org.w3c.dom.Document;
 
@@ -19,7 +19,7 @@ public class TotalTest {
 
     @Test
     public void testTotal() throws Exception {
-        Document doc = Parsing.loadDocument(sampleCompany);
+        Document doc = Serialization.loadDocument(sampleCompany);
         double total = total(doc);
         assertEquals(399747, total, 0);
     }

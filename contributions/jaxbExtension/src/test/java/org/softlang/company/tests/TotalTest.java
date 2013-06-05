@@ -1,8 +1,8 @@
 package org.softlang.company.tests;
 
-import org.softlang.company.model.*;
+import static org.softlang.company.features.Serialization.*;
 import org.softlang.company.features.Total;
-import static org.softlang.company.features.Parsing.*;
+import org.softlang.company.model.*;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;

@@ -1,6 +1,6 @@
 package org.softlang.company.tests;
 
-import static org.softlang.company.features.sax.SAXUtilities.*;
+import static org.softlang.company.features.Parsing.*;
 import org.softlang.company.features.sax.Tracer;
 
 import java.io.File;

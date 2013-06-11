@@ -1,4 +1,5 @@
 *.class
+.gradle/
 
 # Package Files #
 *.jar
@@ -6,5 +7,4 @@
 *.ear
 
 # Exception for gradle-wrapper
-
 !tools/gradlew-simplejava/wrapper.jar

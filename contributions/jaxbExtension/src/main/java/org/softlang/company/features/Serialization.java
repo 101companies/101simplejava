@@ -1,6 +1,6 @@
 package org.softlang.company.features;
 
-import org.softlang.company.model.Company;
+import org.softlang.company.xjc.Company;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -24,7 +24,7 @@ public class Serialization {
     {
         if (jaxbContext==null)
             jaxbContext =
-                JAXBContext.newInstance("org.softlang.company.model");
+                JAXBContext.newInstance("org.softlang.company.xjc");
     }
 
     public static Company deserializeCompany(File input)

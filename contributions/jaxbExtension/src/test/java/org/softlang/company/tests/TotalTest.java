@@ -2,7 +2,7 @@ package org.softlang.company.tests;
 
 import static org.softlang.company.features.Serialization.*;
 import org.softlang.company.features.Total;
-import org.softlang.company.model.*;
+import org.softlang.company.xjc.*;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;

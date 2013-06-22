@@ -1,6 +1,6 @@
 package org.softlang.company.features;
 
-import org.softlang.company.model.*;
+import org.softlang.company.xjc.*;
 
 public class Total {
 

@@ -1,6 +1,6 @@
 package org.softlang.company.tests;
 
-import org.softlang.company.model.*;
+import org.softlang.company.xjc.*;
 import static org.softlang.company.features.Serialization.*;
 
 import javax.xml.bind.JAXBException;

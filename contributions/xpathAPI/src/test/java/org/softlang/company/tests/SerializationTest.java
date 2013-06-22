@@ -1,7 +1,5 @@
 package org.softlang.company.tests;
 
-import static org.softlang.company.features.Cut.*;
-import static org.softlang.company.features.Total.*;
 import static org.softlang.company.features.Serialization.*;
 
 import org.w3c.dom.Document;
@@ -31,7 +29,7 @@ public class SerializationTest {
         Document doc = loadDocument(sampleCompany);
         new File("outputs").mkdir();
         saveDocument(doc,output);
-        Document loadedDoc = loadDocument(output);
+        loadDocument(output);
     }
 
 }

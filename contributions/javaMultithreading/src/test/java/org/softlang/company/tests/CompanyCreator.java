@@ -5,7 +5,7 @@ import org.softlang.company.model.Department;
 import org.softlang.company.model.Employee;
 
 /**
- * This class is used to create adequately sized test companies to see the boost
+ * This class is used to create adequate sized test companies to see the boost
  * of multithreading.
  * 
  */

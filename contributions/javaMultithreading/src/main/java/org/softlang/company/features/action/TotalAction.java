@@ -4,35 +4,29 @@ import org.softlang.company.model.Department;
 import org.softlang.company.model.Employee;
 import org.softlang.company.features.context.Context;
 
-/**
- * Total a department in a context
- */
 public class TotalAction implements Action<Department, Double> {
 
 	private double total = 0;
 
+	@Override
 	public void execute(Context context, Department department) {
-
-    	// Delegate execution for all departments to the context
-		for (Department sub : department.getSubdepts()) {
-			context.execute(this, sub);
+		// Lets context organize the total of the sub departments
+		for (Department s : department.getSubdepts()) {
+			context.execute(this, s);
 		}
 
-        // Total manager and employees, sequentially
-		addToTotal(department.getManager().getSalary());
+		// Total manager and employees
+		increaseTotalBy(department.getManager().getSalary());
 		for (Employee e : department.getEmployees()) {
-			addToTotal(e.getSalary());
+			increaseTotalBy(e.getSalary());
 		}
 	}
 
-	// Synchronized access to the aggregation variable
-    private synchronized void addToTotal(double x) {
-        total += x;
-	}	
+	private synchronized void increaseTotalBy(double x) {
+		total += x;
+	}
 
-	/**
-	 * Return aggregated total assuming all threads were completed
-	 */
+	@Override
 	public Double getResult() {
 		return total;
 	}

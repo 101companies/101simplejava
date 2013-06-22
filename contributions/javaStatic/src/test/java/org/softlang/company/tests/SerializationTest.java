@@ -4,11 +4,8 @@ import org.softlang.company.model.*;
 
 import static org.softlang.company.features.Serialization.*;
 
-import java.lang.reflect.Field;
-import java.util.LinkedList;
 import java.io.File;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**

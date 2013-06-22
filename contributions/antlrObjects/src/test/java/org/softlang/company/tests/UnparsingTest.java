@@ -20,14 +20,14 @@ public class UnparsingTest {
         + "sample.Company";
 
     private static String output =
-        "build/outputs"
+        "outputs"
         + File.separator
         + "output.txt";
 
     @Test
     public void testUnparsing()
             throws IOException, RecognitionException {
-        new File("build/outputs").mkdir();
+        new File("outputs").mkdir();
         Company c = parse(sampleCompany);
         new Cut().cut(c);
         Unparsing p = new Unparsing();

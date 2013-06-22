@@ -7,11 +7,18 @@ import org.softlang.company.model.Company;
 
 public class Cut {
 
+    /**
+     * Perform cut, concurrently
+     */
+
     public static void cutWithThreads(Company company) {
         CompanyContextManager.execute(new ConcurrentContext(),
-		                              company, new CutAction());
+                                      company, new CutAction());
     }
 
+    /**
+     * Perform cut, sequentially
+     */
     public static void cut(Company company) {
         company.cut();
     }

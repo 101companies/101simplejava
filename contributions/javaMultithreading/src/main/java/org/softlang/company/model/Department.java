@@ -37,6 +37,9 @@ public class Department {
         return employees;
     }
 
+    /**
+     * Compute total, sequentially
+     */
     public double total() {
         double total = 0;
         total += getManager().getSalary();
@@ -49,6 +52,9 @@ public class Department {
         return total;
     }
 
+    /**
+     * Perform cut, sequentially
+     */
      public void cut() {
         getManager().cut();
         for (Department s : getSubdepts()) {

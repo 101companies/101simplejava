@@ -23,6 +23,9 @@ public class Company {
         return depts;
     }
 
+    /**
+     * Compute total, sequentially
+     */
     public Double total() {
         double total = 0;
         for (Department d : getDepts()) {
@@ -31,6 +34,9 @@ public class Company {
         return total;
     }
 
+    /**
+     * Perform cut, sequentially
+     */
     public void cut() {
         for (Department d : getDepts()) {
             d.cut();

@@ -40,6 +40,8 @@ Run the following command, which downloads Gradle if needed and performs possibl
 Then, run another command to build and test all contributions:
 
     $ ./gradlew build
+
+If this approach fails, it may be that there is an issue with a particular contribution which takes down the entire build step. Perhaps, this problematic contribution is not even of interest for you. In this case, you could just try to build the contributions of interest individually, as described below.
     
 # Preparing contributions for Eclipse
 

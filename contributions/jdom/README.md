@@ -1,6 +1,6 @@
 This is an implementation of the 101companies System.
 
-Headline: Exercise in-memory XML processing with JDOM in Java
+Headline: Process XML data with Java's JDOM API
 
 Documentation: http://101companies.org/wiki/Contribution:jdom
 

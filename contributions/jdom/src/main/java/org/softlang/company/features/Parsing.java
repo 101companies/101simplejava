@@ -10,7 +10,7 @@ import org.jdom.input.SAXBuilder;
 public class Parsing {
 
     public static Document parseCompany(String file) throws IOException, JDOMException {
-        return (new SAXBuilder().build(new File(file)));
+        return new SAXBuilder().build(new File(file));
     }
 
 }

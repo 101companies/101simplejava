@@ -72,7 +72,9 @@ Then, run the following command to build and test the contribution:
 
 Use the batchfile "gradlew.bat" instead of the script "gradlew".
 
-Run the batchfile from a command prompt, not from the Windows Explorer.
+Run the batchfile from a command prompt with "gradlew" instead of "./gradlew" as explained above, not from the Windows Explorer.
+
+The "../gradlew" command doesn't work on windows.
 
 Check that JDK binaries are in your PATH and/or the JAVA_HOME environment variable is set.
 

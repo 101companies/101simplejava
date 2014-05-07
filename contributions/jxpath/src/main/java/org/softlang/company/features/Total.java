@@ -9,6 +9,7 @@ public class Total {
 
 	public static double total(Company c) {
 		JXPathContext con = JXPathContext.newContext(c);
+		@SuppressWarnings("unchecked")
 		Iterator<Double> it = con.iterate("//@salary");
 		double result = 0;
 		while (it.hasNext()) {

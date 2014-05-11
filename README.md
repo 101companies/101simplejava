@@ -21,9 +21,13 @@ git://github.com/101companies/101simplejava.git
 * Java SDK 6+ (with Java SDK binaries in the PATH or JAVA_HOME set up)
 * Eclipse Juno+ (in case contributions are to be opened in Eclipse)
 
-# Building contributions
+# Building information
 
-All contributions are built using [Gradle](www.gradle.org).
+All contributions are built using [Gradle](www.gradle.org), check [this site](hhttp://www.gradle.org/tooling) for an offical plugin for your IDE. 
+
+When using an offical Plugin, just download this repo and import the contributions with your IDE.
+
+# Building contributions
 
 In order to ease deployment, a wrapper script downloads and installs Gradle locally.
 
@@ -50,6 +54,8 @@ Eclipse project information can be generated for all projects by running another
     $ ./gradlew eclipse
 
 This command leaves the contributions in a state ready to be imported into an Eclipse workspace.
+
+You can use the [Gradle-Eclipse-Plugin](https://github.com/spring-projects/eclipse-integration-gradle/) instead.
 
 # Exercising individual contributions
 

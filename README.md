@@ -23,7 +23,7 @@ git://github.com/101companies/101simplejava.git
 
 # Building information
 
-All contributions are built using [Gradle](www.gradle.org), check [this site](hhttp://www.gradle.org/tooling) for an offical plugin for your IDE. 
+All contributions are built using [Gradle](www.gradle.org), check [this site](http://www.gradle.org/tooling) for an offical plugin for your IDE. 
 
 When using an offical Plugin, just download this repo and import the contributions with your IDE.
 

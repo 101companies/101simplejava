@@ -73,8 +73,8 @@ employee returns [Employee e]:
   '}'
   {
     $e = new Employee();
-    e.setName($n.text);
-    e.setAddress($a.text);
+    $e.setName($n.text);
+    $e.setAddress($a.text);
     $e.setSalary(Double.parseDouble($s.text));
   }
   ;

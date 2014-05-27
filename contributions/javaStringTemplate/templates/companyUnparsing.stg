@@ -1,0 +1,16 @@
+delimiters "<", ">"
+
+company(c) ::=<<company "<c.name>" {
+	<c.departments:{x|<x:department()>}; separator="\n">
+}>>
+	
+department(d) ::=<<department "<d.name>" {
+	<{manager <d.manager:employee()>}>
+	<d.employees:{x|employee <x:employee()>}; separator="\n">
+	<d.subDepartments:{x|<x:department()>}; separator="\n">
+}>>
+
+employee(e) ::=<<"<e.name>" {
+	address "<e.address>"
+	salary <e.salary>
+}>>

@@ -31,7 +31,7 @@ company "ACME Corporation" {
 				employee "Joe" {
 					address "Wifi City"
 					salary 2344.0
-				}			
+				}
 			}
 		}
 	}

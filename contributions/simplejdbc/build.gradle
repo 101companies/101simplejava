@@ -40,7 +40,6 @@ eclipse.classpath.file {
         def owner = root.getOwnerDocument()
         def newNode = owner.createElement('classpathentry')
         newNode.setAttribute('kind', 'src')
-        newNode.setAttribute('path', 'src/main/antlr')
         root.appendChild(newNode)
         for (child in root.getChildNodes()) {
             if (child.getAttributes() != null) {
@@ -90,10 +89,6 @@ cleanEclipse {
         delete '.settings', 'bin', 'libs'
     }
 }
-// Additional cleanup for ANTLR
 clean {
     dependsOn cleanEclipse
-    doFirst {
-        delete 'src/main/java/org/softlang/company/antlr'
-    }
 }

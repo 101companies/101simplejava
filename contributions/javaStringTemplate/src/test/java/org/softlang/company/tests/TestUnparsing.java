@@ -39,7 +39,7 @@ public class TestUnparsing {
 		d3.addSubDepartment(d4);
 		acme.addDepartment(d2);
 		try {
-			BufferedReader read =new BufferedReader(new FileReader("inputs/sample.Company"));
+			BufferedReader read =new BufferedReader(new FileReader("inputs"+File.separatorChar+"sample.Company"));
 			while(read.ready())
 				example += read.readLine();
 			read.close();
@@ -51,10 +51,10 @@ public class TestUnparsing {
 	@Test
 	public void test() {
 		new File("outputs").mkdir();
-		Unparsing.unparse(acme, "outputs/test.Company");
+		Unparsing.unparse(acme, "outputs"+File.separatorChar+"test.Company");
 		String out = "";
 		try {
-			BufferedReader read =new BufferedReader(new FileReader("outputs/test.Company"));
+			BufferedReader read =new BufferedReader(new FileReader("outputs"+File.separatorChar+"test.Company"));
 			while(read.ready())
 				out += read.readLine();
 			read.close();

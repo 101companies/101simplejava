@@ -9,6 +9,12 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 public class Parsing {
+	/**
+	 * 
+	 * Method to parse a JSON file 
+	 * @param file Path for JSON file
+	 * @return	a JsonObject representing the JSON file
+	 */
 	public static Company parseFromFile(String file) {
 		Gson gson = new Gson();
 		JsonReader read;
@@ -24,7 +30,12 @@ public class Parsing {
 
 		return res;
 	}
-
+	
+	/**
+	 * 
+	 * @param jsonString String containing JSON
+	 * @return a JsonObject representing the JSON from the string
+	 */
 	public static Company parse(String jsonString) {
 		Gson gson = new Gson();
 		Company res = new Company("");

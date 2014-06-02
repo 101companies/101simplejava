@@ -9,6 +9,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class Unparsing {
+	/**
+	 * Method to parse a company to a jsonfile 
+	 * @param c
+	 * @param file
+	 */
 	public static void unparseToFile(Company c, String file) {
 		GsonBuilder builder = new GsonBuilder();
 		builder.setPrettyPrinting();
@@ -24,6 +29,11 @@ public class Unparsing {
 		}
 	}
 
+	/**
+	 * Method to parse a company to a json string 
+	 * @param c 
+	 * @return
+	 */
 	public static String unparse(Company c) {
 		GsonBuilder builder = new GsonBuilder();
 		builder.setPrettyPrinting();

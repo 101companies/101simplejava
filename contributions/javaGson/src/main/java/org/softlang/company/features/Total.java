@@ -5,7 +5,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class Total {
-
+	/**
+	 * Method to get the total of all salaries
+	 * @param obj JsonObject to compute total for
+	 * @return total of obj
+	 */
 	public static double total(JsonObject obj) {
 		double result = 0.0;
 		if (obj.has("departments")) {
@@ -23,6 +27,11 @@ public class Total {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param array
+	 * @return
+	 */
 	private static double total(JsonArray array) {
 		double result = 0.0;
 		for (JsonElement temp : array)

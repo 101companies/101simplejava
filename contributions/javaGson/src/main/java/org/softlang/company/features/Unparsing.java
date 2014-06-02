@@ -8,6 +8,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 public class Unparsing {
+	
+	/**
+	 * 
+	 * @param j
+	 * @param file
+	 */
 	public static void unparseToFile(JsonObject j, String file) {
 		GsonBuilder builder = new GsonBuilder();
 		builder.setPrettyPrinting();
@@ -21,6 +27,11 @@ public class Unparsing {
 		}
 	}
 
+	/**
+	 * 
+	 * @param o
+	 * @return
+	 */
 	public static String unparse(JsonObject o) {
 		GsonBuilder builder = new GsonBuilder();
 		builder.setPrettyPrinting();

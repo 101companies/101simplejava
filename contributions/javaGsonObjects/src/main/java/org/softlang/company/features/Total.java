@@ -5,7 +5,11 @@ import org.softlang.company.model.Department;
 import org.softlang.company.model.Employee;
 
 public class Total {
-
+	/**
+	 * Method to get the total of all salaries
+	 * @param c company to compute total for
+	 * @return total of company c
+	 */
 	public static double total(Company c) {
 		double result = 0.0;
 		if (c.getDepartments() != null)

@@ -5,6 +5,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class Cut {
+	/**
+	 * Method to search for and cut "salary" properties in a JsonObject 
+	 * @param obj JsonObject of the company to cut salaries from
+	 */
 	public static void cut(JsonObject obj) {
 
 		if (obj.has("departments")) {
@@ -22,6 +26,11 @@ public class Cut {
 		}
 	}
 
+	
+	/**
+	 * Helper method for cut
+	 * @param arr JsonArray to search and cut salaries for
+	 */
 	private static void cut(JsonArray arr) {
 		for (JsonElement temp : arr)
 			if (temp.isJsonObject()) {

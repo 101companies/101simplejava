@@ -31,21 +31,17 @@ eclipse.classpath.file {
     whenMerged {
         classpath ->
             classpath.entries.removeAll {
-                entry -> (entry.kind == 'src' && entry.path == '')
+                entry -> ( entry.kind == 'src' && entry.path == '' )
             }
     }
     // Gather dependencies
     withXml {
         def root = it.asElement()
-        def owner = root.getOwnerDocument()
-        def newNode = owner.createElement('classpathentry')
-        newNode.setAttribute('kind', 'src')
-        root.appendChild(newNode)
-        for (child in root.getChildNodes()) {
-            if (child.getAttributes() != null) {
-                if (child.getAttributes().getNamedItem('kind') != null) {
-                    if (child.getAttributes().getNamedItem('kind').getTextContent() == 'lib') {
-                        if (child.getAttributes().getNamedItem('sourcepath') != null) {
+        for ( child in root.getChildNodes() ) {
+            if ( child.getAttributes() != null ) {
+                if ( child.getAttributes().getNamedItem('kind') != null ) {
+                    if ( child.getAttributes().getNamedItem('kind').getTextContent() == 'lib' ) {
+                        if ( child.getAttributes().getNamedItem('sourcepath') != null ) {
                             def oldPath = child.getAttributes().getNamedItem('path').getTextContent()
                             def newPath = 'libs/' + new File(oldPath).getName()
                             copy {
@@ -64,7 +60,8 @@ eclipse.classpath.file {
                             println 'Moving library from ' + oldPath + ' with'
                             println '       sources ' + oldSourcePath
                             println '       to libs/.'
-                        } else {
+                        }
+                        else {
                             def oldPath = child.getAttributes().getNamedItem('path').getTextContent()
                             def newPath = 'libs/' + new File(oldPath).getName()
                             copy {
@@ -75,7 +72,8 @@ eclipse.classpath.file {
                             println 'Moving library from ' + oldPath
                             println '       to libs/.'
                         }
-                    } else {
+                    }
+                    else {
                         // non-lib kind
                     }
                 }

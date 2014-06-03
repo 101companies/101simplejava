@@ -1,9 +1,94 @@
 task wrapper(type: Wrapper) {
-	gradleVersion = '1.3'
+	gradleVersion = '1.12'
         jarFile = '../tools/gradlew-simplejava/wrapper.jar'
 }
 
 subprojects {
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
+
+	// If we don't set this, Eclipse will get confused
+	sourceCompatibility = '1.7'
+
+	// Use the maven repository to fetch dependencies
+	repositories {
+		mavenCentral()
+	}
+
+	// Gradle functionality
+	// Configure testing
+	test {
+		testLogging {
+			exceptionFormat "full"
+			events "passed", "failed", "skipped"
+			showStandardStreams = true
+		}
+	}
+
+	// Prepare for eclipse
+	eclipse.classpath.file {
+		// Beautification
+		whenMerged {
+			classpath ->
+				classpath.entries.removeAll {
+					entry -> ( entry.kind == 'src' && entry.path == '' )
+				}
+		}
+		// Gather dependencies
+		withXml {
+			def root = it.asElement()
+			for ( child in root.getChildNodes() ) {
+				if ( child.getAttributes() != null ) {
+					if ( child.getAttributes().getNamedItem('kind') != null ) {
+						if ( child.getAttributes().getNamedItem('kind').getTextContent() == 'lib' ) {
+							if ( child.getAttributes().getNamedItem('sourcepath') != null ) {
+								def oldPath = child.getAttributes().getNamedItem('path').getTextContent()
+								def newPath = 'libs/' + new File(oldPath).getName()
+								copy {
+									from oldPath
+									into 'libs/'
+								}
+								def oldSourcePath = child.getAttributes().getNamedItem('sourcepath').getTextContent()
+								def newSourcePath = 'libs/' + new File(oldSourcePath).getName()
+								copy {
+									from oldSourcePath
+									into 'libs/'
+								}
+								child.setAttribute('path', newPath)
+								child.setAttribute('sourcepath', newSourcePath)
+								child.removeAttribute('exported')
+								println 'Moving library from ' + oldPath + ' with'
+								println '       sources ' + oldSourcePath
+								println '       to libs/.'
+							}
+							else {
+								def oldPath = child.getAttributes().getNamedItem('path').getTextContent()
+								def newPath = 'libs/' + new File(oldPath).getName()
+								copy {
+									from oldPath
+									into 'libs/'
+								}
+								child.setAttribute('path', newPath)
+								println 'Moving library from ' + oldPath
+								println '       to libs/.'
+							}
+						}
+						else {
+							// non-lib kind
+						}
+					}
+				}
+			}
+		}
+	}
+	// Additional cleanup for eclipse
+	cleanEclipse {
+		doFirst {
+			delete '.settings', 'bin', 'libs'
+		}
+	}
+	// Additional cleanup for outputs
+	clean {
+		dependsOn cleanEclipse
+	}
 }

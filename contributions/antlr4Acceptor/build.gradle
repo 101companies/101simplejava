@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'org.softlang.company'
+version = '1.0.0'
+
+// Implementation specifics
+// This implementation uses ANTLR for Parser-Generation and JUnit for testing
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11+'
+	compile group: 'org.antlr', name: 'antlr4', version: '4.2.2'
+}
+// Use ANTLR to generate a Parser from src/main/antlr/Company.g4 to src/main/java/org/softlang/company/antlr
+task generateFromANTLR(type: JavaExec) {
+	inputs.dir file('src/main/antlr')
+	outputs.dir file('src/main/java/org/softlang/company/antlr')
+
+	classpath = compileJava.classpath
+
+	main = 'org.antlr.v4.Tool'
+	args = ['-o','src/main/java/org/softlang/company/antlr', 'src/main/antlr/Company.g4']
+}
+// Execute ANTLR before compiling Java code
+compileJava {
+	dependsOn generateFromANTLR
+}
+// Additional cleanup for ANTLR
+clean {
+	dependsOn cleanEclipse
+	doFirst {
+		delete 'src/main/java/org/softlang/company/antlr'
+	}
+}

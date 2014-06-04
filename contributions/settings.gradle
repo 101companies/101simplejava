@@ -1,3 +1,7 @@
+include 'antlr4Acceptor'
+include 'antlr4Lexer'
+include 'antlr4Objects'
+include 'antlr4Parser'
 include 'antlrAcceptor'
 include 'antlrLexer'
 include 'antlrObjects'

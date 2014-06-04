@@ -58,7 +58,7 @@ public class TestTotal {
 	@Test
 	public void testTotal() {
 		double total = 1126839.0;
-		assertEquals(Total.total(snpp), 1126839.0, 0.0d);
+		assertEquals(Total.total(snpp), total, 0.0d);
 		assertEquals(Total.total(emptyCompany), 0.0, 0.);
 		assertEquals(Total.total(snpp2), 25888.0, 0.0);
 	}

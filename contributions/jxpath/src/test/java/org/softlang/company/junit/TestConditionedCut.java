@@ -63,7 +63,7 @@ public class TestConditionedCut {
 	 */
 	@Test(expected = JXPathInvalidSyntaxException.class)
 	public void testConditionedNoCondition() {
-		double totalOld = Total.total(snpp);
+
 		ConditionedCut.conditionedCut(snpp, "");
 
 	}

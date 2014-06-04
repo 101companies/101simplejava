@@ -11,6 +11,7 @@ import org.softlang.company.model.Employee;
 public class GetAll {
 	public static List<Employee> getAllEmployees(Company c) {
 		JXPathContext con = JXPathContext.newContext(c);
+		@SuppressWarnings("unchecked")
 		ArrayList<Employee> es = (ArrayList<Employee>) con
 				.selectNodes("//employees|//manager");
 
@@ -19,6 +20,7 @@ public class GetAll {
 
 	public static List<Department> getAllDepartments(Company c) {
 		JXPathContext con = JXPathContext.newContext(c);
+		@SuppressWarnings("unchecked")
 		ArrayList<Department> ds = (ArrayList<Department>) con
 				.selectNodes("//departments|//subDepartments");
 

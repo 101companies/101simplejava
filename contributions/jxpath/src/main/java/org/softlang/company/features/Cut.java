@@ -20,6 +20,7 @@ public class Cut {
 	 * @param c
 	 *            Company to cut salaries
 	 */
+	@SuppressWarnings("unchecked")
 	public static void cut(Company c) {
 		JXPathContext con = JXPathContext.newContext(c);
 		LinkedList<Employee> es = new LinkedList<Employee>();

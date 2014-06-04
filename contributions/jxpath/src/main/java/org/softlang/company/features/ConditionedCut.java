@@ -32,6 +32,7 @@ public class ConditionedCut {
 	 *                if condition is empty or is only whitespace
 	 * 
 	 */
+	@SuppressWarnings("unchecked")
 	public static void conditionedCut(Company c, String condition)
 			throws JXPathInvalidSyntaxException {
 		JXPathContext con = JXPathContext.newContext(c);

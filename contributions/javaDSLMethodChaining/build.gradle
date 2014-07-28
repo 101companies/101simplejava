@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'org.softlang.company'
+version = '1.0.0'
+
+// Implementation specifics
+// This implementation uses JUnit and apache.commons.lang for testing
+
+dependencies {
+	testCompile 'org.apache.commons:commons-lang3:3.3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.11+'
+}
+

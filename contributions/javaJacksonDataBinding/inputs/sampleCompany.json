@@ -1,0 +1,44 @@
+{
+  "name" : "Acme Corporation",
+  "departments" : [ {
+    "name" : "Research",
+    "manager" : {
+      "name" : "Fred",
+      "address" : null,
+      "salary" : 88888.0
+    },
+    "departments" : [ ],
+    "employees" : [ ]
+  }, {
+    "name" : "Development",
+    "manager" : {
+      "name" : "Marie",
+      "address" : null,
+      "salary" : 77777.0
+    },
+    "departments" : [ {
+      "name" : "Dev1",
+      "manager" : {
+        "name" : "Bob",
+        "address" : null,
+        "salary" : 77776.0
+      },
+      "departments" : [ ],
+      "employees" : [ ]
+    }, {
+      "name" : "Dev2",
+      "manager" : {
+        "name" : "Alice",
+        "address" : null,
+        "salary" : 77775.0
+      },
+      "departments" : [ ],
+      "employees" : [ {
+        "name" : "Ralf",
+        "address" : null,
+        "salary" : 4711.0
+      } ]
+    } ],
+    "employees" : [ ]
+  } ]
+}

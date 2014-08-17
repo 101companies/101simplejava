@@ -4,16 +4,12 @@ apply plugin: 'eclipse'
 group = 'org.softlang.company'
 version = '1.0.0'
 
-// Use the maven repository to fetch dependencies
-repositories {
-	mavenCentral()
-}
 
 // Implementation specifics
-// This implementation uses ANTLR for Parser-Generation and JUnit for testing
+// This implementation uses ANTLR4 for Parser-Generation and JUnit for testing
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11+'
 	compile group: 'org.antlr', name: 'antlr4', version: '4.2.2'
+    testCompile group: 'junit', name: 'junit', version: '4.11+'
 }
 // Use ANTLR to generate a Parser from src/main/antlr/Company.g4 to src/main/java/org/softlang/company/antlr
 task generateFromANTLR(type: JavaExec) {
@@ -35,5 +31,13 @@ clean {
 	dependsOn cleanEclipse
 	doFirst {
 		delete 'src/main/java/org/softlang/company/antlr'
+	}
+}
+
+// Additional cleanup for outputs
+clean {
+	dependsOn cleanEclipse
+	doFirst {
+		delete 'outputs'
 	}
 }

@@ -23,7 +23,7 @@ task generateFromANTLR(type: JavaExec) {
 	classpath = compileJava.classpath
 
 	main = 'org.antlr.v4.Tool'
-	args = ['-o','src/main/java/org/softlang/company/antlr', 'src/main/antlr/Company.g4']
+	args = ['-o','src/main/java/org/softlang/company/antlr','-visitor','src/main/antlr/Company.g4']
 }
 // Execute ANTLR before compiling Java code
 compileJava {
@@ -35,5 +35,13 @@ clean {
 	dependsOn cleanEclipse
 	doFirst {
 		delete 'src/main/java/org/softlang/company/antlr'
+	}
+}
+
+// Additional cleanup for outputs
+clean {
+	dependsOn cleanEclipse
+	doFirst {
+		delete 'outputs'
 	}
 }

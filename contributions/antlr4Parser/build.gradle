@@ -29,3 +29,11 @@ task generateFromANTLR(type: JavaExec) {
 compileJava {
 	dependsOn generateFromANTLR
 }
+
+// Additional cleanup for ANTLR
+clean {
+	dependsOn cleanEclipse
+	doFirst {
+		delete 'src/main/java/org/softlang/company/antlr'
+	}
+}

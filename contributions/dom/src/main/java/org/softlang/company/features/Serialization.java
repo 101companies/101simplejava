@@ -1,11 +1,12 @@
 package org.softlang.company.features;
 
 import org.w3c.dom.Document;
-
 import org.xml.sax.SAXException;
 
 import java.io.File;
 import java.io.IOException;
+
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -18,6 +19,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 
 public class Serialization {
 
@@ -118,6 +122,34 @@ public class Serialization {
         } catch (ParserConfigurationException e) {
         }
         return null;
+    }
+    
+    /**
+     * return true if document is a valid company
+     * 
+     */
+    public static boolean isValidXml(Document document){
+    	Schema schema = null;
+    	File xsd = new File("inputs" + File.separator + "Company.xsd"); 
+    	Result result = null;
+    	//Create a factory for validation
+    	String language  = XMLConstants.W3C_XML_SCHEMA_NS_URI;
+    	SchemaFactory factory = SchemaFactory.newInstance(language);
+    	try {
+    		//Create schema from factory with Company.xsd 
+			schema = factory.newSchema(xsd);
+			//Create validator
+			Validator validator = schema.newValidator();
+			//Validate XML document
+			validator.validate(new DOMSource(document));
+		} catch (SAXException e) {
+			System.err.println(e);
+			// return false if validation error occurs
+			return false;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	return true;
     }
 
 }

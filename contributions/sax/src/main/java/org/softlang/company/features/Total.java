@@ -8,7 +8,7 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public class Total extends DefaultHandler {
 
-    private static String ns = "http://www.company.softlang.org/model.xsd";
+    private static String ns = "http://www.company.softlang.org/company.xsd";
     private boolean isSalary = false;
     private double total = 0;
 

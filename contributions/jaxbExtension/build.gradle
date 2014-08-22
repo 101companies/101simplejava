@@ -12,7 +12,7 @@ dependencies {
 // Generate model classes with xjc
 task xjc(type: Exec) {
 	commandLine 'xjc'
-	args = ['inputs/Company.xsd', '-d', 'src/main/java']
+	args = ['inputs/Company.xsd', '-d', 'src/main/java', '-p' , 'org.softlang.company.xjc']
 	doFirst {
 		mkdir 'src/main/java/org/softlang/company/xjc'
 	}

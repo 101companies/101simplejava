@@ -13,29 +13,53 @@ import org.softlang.company.model.Employee;
  * @author jan
  *
  * cqCompany means Command & Query company
- * mcCompany means MethodChaining company
+ * fsCompany means FunctionSequence company
  */
 public class CompanyBuilderTest {
 
 	@Test
-    public void testCompany() {
+    public void testCompanyWithDepartments() {
+		String name = "abc2";
+		
+		Company cqCompany = new Company();
+		cqCompany.setName(name);
+		Department dep1 = new Department();
+		dep1.setName("dep1");
+		cqCompany.getDepts().add(dep1);
+		Department dep2 = new Department();
+		dep2.setName("dep2");
+		cqCompany.getDepts().add(dep2);
+		
+		CompanyBuilder builder = new CBCompanyWithDepartments();
+		builder.run();
+		Company fcCompany = builder.getValue();
+		
+		assertEquals(cqCompany, fcCompany);
+	}
+	
+	@Test
+    public void testSimpleCompany() {
 		String name = "abc2";
 		
 		Company cqCompany = new Company();
 		cqCompany.setName(name);
 		
-		CompanyBuilder builder = new CompanyBuilder();
-		Company mcCompany = builder
-				.company(name)
-				.endCompany();
-		assertEquals(cqCompany, mcCompany);
+		CompanyBuilder builder = new CBSimpleCompany();
+		builder.run();
+		Company fcCompany = builder.getValue();
+		
+		assertEquals(cqCompany, fcCompany);
 	}
 	
     @Test
     public void testBigExample() {
-    	Company mcCompany = createCompanyMethodChaining();
+    	CBBigExample builder = new CBBigExample();
+    	builder.run();
+		Company fcCompany = builder.getValue();
+    	
     	Company cqCompany = createCompanyCommandAndQuery();
-    	assertEquals(cqCompany, mcCompany);
+    	
+    	assertEquals(cqCompany, fcCompany);
     }
     
     private Company createCompanyCommandAndQuery() {
@@ -104,46 +128,5 @@ public class CompanyBuilderTest {
         return sampleCompany;
 	}
 
-	public static Company createCompanyMethodChaining(){
-		
-    	CompanyBuilder builder = new CompanyBuilder();
-		
-    	return builder
-    	.company("ACME Corporation")
-			.department("Research")
-				.manager("Craig")
-					.address("Redmond")
-					.salary(123456)
-				.employee("Erik")
-					.address("Utrecht")
-					.salary(12345)
-				.employee("Ralf")
-					.address("Koblenz")
-					.salary(1234)
-			.endDepartment()
-					
-			.department("Development")
-				.manager("Ray")
-					.address("Redmond")
-					.salary(234567)
-					
-				.department("Dev1")
-					.manager("Klaus")
-						.address("Boston")
-						.salary(23456)
-						
-					.department("Dev1.1")
-						.manager("Karl")
-							.address("Riga")
-							.salary(2345)
-						.employee("Joe")
-							.address("Wifi City")
-							.salary(2344)
-					.endDepartment()
-				.endDepartment()
-			.endDepartment()
-		.endCompany();
-		
-	}
 
 }

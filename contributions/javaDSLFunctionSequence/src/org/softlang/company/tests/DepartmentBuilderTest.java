@@ -19,50 +19,23 @@ public class DepartmentBuilderTest {
 	private static final String ADDRESS = "Berlin";
 	
 	@Test
-	public void testDepartment() {
-		Company cqCompany = createSampleCompany();
+    public void testSubDepartments() {
+		String name = "abc2";
 		
-		CompanyBuilder builder = new CompanyBuilder();
-		Company mcCompany = builder
-				.company(NAME_COMP)
-				.department(NAME_DEP)
-				.endCompany();
-		assertEquals(cqCompany, mcCompany);
-	}
-
-	@Test
-	public void testManager() {
-		Company cqCompany = createSampleCompany();
+		Company cqCompany = new Company();
+		cqCompany.setName(name);
+		Department dep1 = new Department();
+		dep1.setName("dep1");
+		cqCompany.getDepts().add(dep1);
+		Department dep2 = new Department();
+		dep2.setName("dep2");
+		dep1.getSubdepts().add(dep2);
 		
-		Employee manager = createSampleEmployee();
-		cqCompany.getDepts().get(0).setManager(manager);
+		CompanyBuilder builder = new CBSubDepartments();
+		builder.run();
+		Company fcCompany = builder.getValue();
 		
-		CompanyBuilder builder = new CompanyBuilder();
-		Company mcCompany = builder
-				.company(NAME_COMP)
-					.department(NAME_DEP)
-						.manager(NAME_EMPL)
-							.salary(SALARY)
-							.address(ADDRESS)
-				.endCompany();
-		assertEquals(cqCompany, mcCompany);
-	}
-	
-	@Test
-	public void testSubDeparment() {
-		Company cqCompany = createSampleCompany();
-		
-		Department subdep = new Department();
-		subdep.setName(NAME_SUBDEP);
-		cqCompany.getDepts().get(0).getSubdepts().add(subdep);
-		
-		CompanyBuilder builder = new CompanyBuilder();
-		Company mcCompany = builder
-				.company(NAME_COMP)
-					.department(NAME_DEP)
-						.department(NAME_SUBDEP)
-				.endCompany();
-		assertEquals(cqCompany, mcCompany);
+		assertEquals(cqCompany, fcCompany);
 	}
 	
 	private Company createSampleCompany() {

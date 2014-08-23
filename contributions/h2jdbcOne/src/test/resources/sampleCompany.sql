@@ -1,15 +1,15 @@
+--
+-- Acme Corporation
+--
 
-// Acme Corporation
-
-
-// Departments
+-- Departments
 
 INSERT INTO department (name) VALUES ('Research'); -- deptId = 1
 INSERT INTO department (name) VALUES ('Development'); -- deptId = 2
 INSERT INTO department (name,did) VALUES ('Dev1',2); -- deptId = 3
 INSERT INTO department (name,did) VALUES ('Dev1.1',3); -- deptId = 4
 
-// Employees
+-- Employees
 
 INSERT INTO employee (name, address, salary, manager, did)
 SELECT 'Craig', 'Redmond', 123456, true, 1

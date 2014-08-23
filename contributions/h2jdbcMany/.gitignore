@@ -1,5 +1,4 @@
 *.class
-*.db
 .gradle/
 .settings/
 .classpath
@@ -7,4 +6,3 @@
 bin/
 build/
 libs/
-outputs/

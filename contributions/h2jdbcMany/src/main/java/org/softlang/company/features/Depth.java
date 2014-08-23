@@ -6,35 +6,48 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Depth {
-	public static int depth(Connection conn, String companyName)
-			throws SQLException {
-		String sql = "SELECT id FROM department WHERE did IS NULL AND ( cid =(SELECT id FROM company WHERE name = ?) );";
-		PreparedStatement s = conn.prepareStatement(sql);
-		s.setString(1, companyName);
-		ResultSet departments = s.executeQuery();
-		int max = 0;
-		int temp = 0;
-		while (departments.next()) {
-			temp = depth(conn, departments.getInt("id"), 0);
-			if (temp > max)
-				max = temp;
-		}
-		return max;
-	}
+    /**
+     * Compute the depth of a given company.
+     */
+    public static int depth(Connection connection, String name) {
+        int maxDepth = 0;
+        try {
+            // get top departments
+            String sql 	= "SELECT id FROM department WHERE did IS NULL AND "
+                    + "cid = (SELECT id FROM company WHERE name = ?);";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, name);
+            ResultSet ids = stm.executeQuery();
+            // get depth of the "deepest" department
+            while (ids.next())
+                maxDepth = 1 + Math.max(
+                        maxDepth,
+                        depth(connection, ids.getInt("id")));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return maxDepth;
+    }
 
-	private static int depth(Connection conn, int id, int result)
-			throws SQLException {
-		String sql = "SELECT id FROM department WHERE did = ?;";
-		PreparedStatement s = conn.prepareStatement(sql);
-		s.setInt(1, id);
-		ResultSet departments = s.executeQuery();
-		int max = result + 1;
-		int temp = 0;
-		while (departments.next()) {
-			temp = depth(conn, departments.getInt("id"), result + 1);
-			if (temp > max)
-				max = temp;
-		}
-		return max;
-	}
+    /**
+     * Compute the depth of a given department.
+     */
+    private static int depth(Connection connection, int id) {
+        int maxDepth = 0;
+        try {
+            // get all sub-departments by id
+            String sql = "SELECT id FROM department WHERE did = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, id);
+            ResultSet ids = stm.executeQuery();
+            // get deepest path
+            while (ids.next())
+                maxDepth = 1 + Math.max(
+                        maxDepth,
+                        depth(connection, ids.getInt("id")));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return maxDepth;
+    }
 }

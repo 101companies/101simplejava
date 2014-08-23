@@ -1,6 +1,6 @@
 This is an implementation of the 101companies System.
 
-Headline: Database programming with JDBC and H2-Database saving one company
+Headline: Database programming with JDBC and H2-Database containing one company
 
 Documentation: http://101companies.org/wiki/Contribution:h2jdbcOne
 

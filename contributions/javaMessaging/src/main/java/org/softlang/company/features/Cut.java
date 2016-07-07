@@ -2,54 +2,51 @@ package org.softlang.company.features;
 
 import javax.jms.Connection;
 import javax.jms.DeliveryMode;
-import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
+import javax.jms.Queue;
 import javax.jms.Session;
-import javax.jms.TextMessage;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-public class Cut {
-	private static Connection connection;
-	private static MessageConsumer consumer;
-	private static MessageProducer producer;
-	private static Session session;
-	private static boolean loop;
+/**
+ * A runnable enables the demonstration of what happens,
+ * when there are multiple sending parties for a 
+ * single queue and a possibility on how to deal with it.
+ * 
+ * @author Marcel
+ *
+ */
+public class Cut implements Runnable {
+	private Connection connection;
+	private MessageConsumer consumer;
+	private MessageProducer producer;
+	private Session session;
+	private Queue queue;
 
+	public Cut(String host,String destination){
+		setupConnection(host, destination);
+	}
+	
 	/**
-	 * cut all salary in the company of destination
+	 * send a message to the queue in order to tell it
+	 * to execute the cut operation on the saved company.
 	 * 
 	 * @param destination
 	 *            destination of the company to cut
 	 * @param host
 	 *            host url to connect to
 	 */
-	public static void cut(String destination, String host) {
-		setupConnection(host, destination);
+	public void run() {
 		try {
+			Message msg = session.createTextMessage("CUT");
+			msg.setStringProperty("id", "Company");
+			producer.send(msg);
 
-			Message message = session.createTextMessage("CUT");
-			producer.send(message);
-
-			loop = true;
-
-			while (loop) {
-				message = consumer.receive(1000);
-				String s;
-				if (message instanceof TextMessage) {
-
-					s = ((TextMessage) message).getText();
-					if (s.equals("CUT-COMPLETE")) {
-						loop = false;
-					}
-
-				}
-
-			}
-
+			msg = consumer.receive(1000);
+			
 			// Clean up
 			session.close();
 			connection.close();
@@ -64,7 +61,7 @@ public class Cut {
 	 * @param host
 	 * @param destination
 	 */
-	private static void setupConnection(String host, String destination) {
+	private void setupConnection(String host, String destination) {
 		// Create a ConnectionFactory
 		ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(
 				host);
@@ -76,13 +73,13 @@ public class Cut {
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
 			// Create the destination
-			Destination destination2 = session.createQueue(destination);
+			queue = session.createQueue(destination);
 
 			// Create MessageConsumer
-			consumer = session.createConsumer(destination2);
+			consumer = session.createConsumer(queue,"id='CUT-COMPLETE'");
 
 			// Create MessageProducer
-			producer = session.createProducer(destination2);
+			producer = session.createProducer(queue);
 			producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
 
 			connection.start();

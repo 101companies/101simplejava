@@ -28,6 +28,51 @@ public class CompanyThread implements Runnable {
 		setupConnection();
 	}
 
+
+	@Override
+	public void run() {
+
+		try {
+
+			loop = true;
+			Message message;
+
+			while(loop) {
+				// Receive message
+				message = consumer.receive(1000);
+				if (message instanceof TextMessage) {
+					String text = ((TextMessage) message).getText();
+					
+					if (text.equals("TOTAL")) {
+						// Create answer-message and send it
+						message = session.createMessage();
+						message.setStringProperty("id", "TOTAL-RESULT");
+						message.setDoubleProperty("result", company.total());
+						producer.send(message);
+					}
+
+					if (text.equals("CUT")) {
+						// Create answer-message and send it
+						company.cut();
+						message = session.createMessage();
+						message.setStringProperty("id", "CUT-COMPLETE");
+						producer.send(message);
+					}
+
+					if (text.equals("SHUTDOWN")) {
+						// Create answer-message and send it
+						message = session.createTextMessage("OK-SHUTDOWN");
+						producer.send(message);
+						shutdown();
+					}
+
+				}
+			}
+		} catch (JMSException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * Setup JMS connection
 	 * 
@@ -49,7 +94,7 @@ public class CompanyThread implements Runnable {
 					.getName());
 
 			// Create MessageConsumer
-			consumer = session.createConsumer(destination);
+			consumer = session.createConsumer(destination,"id='Company'");
 
 			// Create MessageProducer
 			producer = session.createProducer(destination);
@@ -61,65 +106,17 @@ public class CompanyThread implements Runnable {
 		}
 	}
 
-	@Override
-	public void run() {
-
+	/**
+	 * Shutdown JMS 
+	 */
+	public void shutdown() {
+		loop = false;
 		try {
-
-			loop = true;
-			Message message;
-
-			do {
-				// Receive message
-				message = consumer.receive(1000);
-				if (message instanceof TextMessage) {
-					String text = ((TextMessage) message).getText();
-					if (text.equals("TOTAL")) {
-						// Create answer-message and send it
-						message = session.createTextMessage("TOTAL-RESULT");
-						message.setDoubleProperty("result", company.total());
-						producer.send(message);
-
-					}
-
-					if (text.equals("CUT")) {
-						// Create answer-message and send it
-						company.cut();
-						message = session.createTextMessage("CUT-COMPLETE");
-						producer.send(message);
-					}
-
-					if (text.equals("SHUTDOWN")) {
-						// Create answer-message and send it
-						message = session.createTextMessage("OK-SHUTDOWN");
-						producer.send(message);
-						loop = false;
-					}
-
-				}
-			} while (loop);
-
-			// Clean up
 			session.close();
 			connection.close();
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * Shutdown JMS Exception
-	 */
-	public void shutdown() {
-		try {
-			loop = false;
-			this.session.close();
-			this.connection.close();
-		} catch (JMSException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 	}
 
 	public Company getCompany() {

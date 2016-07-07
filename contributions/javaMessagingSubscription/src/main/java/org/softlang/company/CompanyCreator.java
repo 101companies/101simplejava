@@ -1,12 +1,12 @@
-package org.softlang.company.features;
+package org.softlang.company;
 
-import org.softlang.company.model.Company;
-import org.softlang.company.model.Department;
-import org.softlang.company.model.Employee;
+import org.softlang.company.model.*;
 
 /**
- * This class is used to create adequately sized test companies
+ * This class is used to create adequately sized test companies to see the boost
+ * of multithreading.
  * 
+ * Copied from javaMultithreading
  */
 public class CompanyCreator {
 

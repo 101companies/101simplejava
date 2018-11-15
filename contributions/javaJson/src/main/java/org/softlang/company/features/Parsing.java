@@ -13,17 +13,15 @@ public class Parsing
     * Method reads the given file and convert it to a suitable JSON object; then returns it.
     *
     * @param file JSON file with object structure
-    * @return JsonObject with read object structure
+    * @return JsonObject with object structure
     * @throws IOException
     */
 
    public static JsonObject parseCompany(String file) throws IOException
    {
-      InputStream fis = new FileInputStream(file);
-      JsonReader jsonReader = Json.createReader(fis);
+      JsonReader jsonReader = Json.createReader(new FileInputStream(file));
       JsonObject jsonObject = jsonReader.readObject();
       jsonReader.close();
-      fis.close();
       return jsonObject;
    }
 

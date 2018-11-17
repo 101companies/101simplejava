@@ -8,7 +8,7 @@ subprojects {
 	apply plugin: 'eclipse'
 
 	// If we don't set this, Eclipse will get confused
-	sourceCompatibility = '1.7'
+	sourceCompatibility = '10'
 
 	// Use the maven repository to fetch dependencies
 	repositories {

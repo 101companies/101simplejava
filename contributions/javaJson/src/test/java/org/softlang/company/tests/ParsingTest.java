@@ -13,6 +13,8 @@ public class ParsingTest
 {
 
    public static String sampleCompany = "inputs" + File.separator + "sampleCompany.json";
+   public static String companyWithZeroSalary = "inputs" + File.separator + "companyWithZeroSalary.json";
+   public static String companyWithNegSalary = "inputs" + File.separator + "companyWithNegSalary.json";
    public static String emptyCompany = "";
 
 

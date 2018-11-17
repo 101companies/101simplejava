@@ -9,12 +9,16 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.softlang.company.features.Parsing.parseCompany;
 import static org.softlang.company.features.Total.total;
+import static org.softlang.company.tests.ParsingTest.companyWithNegSalary;
+import static org.softlang.company.tests.ParsingTest.companyWithZeroSalary;
 import static org.softlang.company.tests.ParsingTest.sampleCompany;
 
 public class TotalTest
 {
 
-   private JsonObject sampleCompanyObject;
+   private JsonObject sampleCompanyObj;
+   private JsonObject companyWithZeroSalaryObj;
+   private JsonObject companyWithNegSalaryObj;
 
    /**
     * Initialization of JSON object for tests
@@ -25,7 +29,9 @@ public class TotalTest
    @Before
    public void init() throws IOException
    {
-      sampleCompanyObject = parseCompany(sampleCompany);
+      sampleCompanyObj = parseCompany(sampleCompany);
+      companyWithZeroSalaryObj = parseCompany(companyWithZeroSalary);
+      companyWithNegSalaryObj = parseCompany(companyWithNegSalary);
    }
 
    /**
@@ -35,19 +41,28 @@ public class TotalTest
    @Test
    public void testTotalNormalCase()
    {
-      double total = total(sampleCompanyObject);
+      double total = total(sampleCompanyObj);
       assertEquals(326927.0, total, 0.0);
    }
 
    /**
     *
-    *
-    *
     */
 
    @Test
-   public void testTotalBorderCase()
+   public void testTotalEdgeCase()
    {
-      double total = 0.0;
+      double total = total(companyWithZeroSalaryObj);
+      assertEquals(total, 0.0, 0.0);
+   }
+
+   /**
+    *
+    */
+
+   @Test(expected = ArithmeticException.class)
+   public void testTotalErrorCase()
+   {
+      double total = total(companyWithNegSalaryObj);
    }
 }

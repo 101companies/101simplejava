@@ -29,7 +29,6 @@ public class Total
     * @param key1 key for the value at hand
     * @param val1 JSON value to traverse
     * @return salary total
-    *
     * @throws ArithmeticException when a salary is negative
     */
    private static double total(String key1, JsonValue val1) throws ArithmeticException
@@ -68,7 +67,7 @@ public class Total
             // Iterate over inner JSON objects and adding aggregated value to sum
             JsonObject obj = (JsonObject) val1;
 
-            obj.keySet()
+            sum += obj.keySet()
                   .stream()
                   .map(key2 -> total(key2, obj.get(key2)))
                   .reduce(0.0, (t1, t2) -> t1 + t2);

@@ -13,7 +13,7 @@ public class Cut
    private static final String SALARY = "salary";
 
    /**
-    * Executes the cut method for every key-Object in obj.keySet() and the suitable object. Returns the updated JSON object.
+    * Executes the cut method on every key in a json object. Returns the updated JSON object.
     *
     * @param obj input JSON object
     * @return output updated JSON object
@@ -28,7 +28,7 @@ public class Cut
    }
 
    /**
-    * Executes the cut method for every item of arr-parameter. Returns the updated JSON array object.
+    * Executes the cut method for every item in a json array. Returns the updated JSON array object.
     *
     * @param arr input JSON array
     * @return updated output JSON array
@@ -43,9 +43,9 @@ public class Cut
    }
 
    /**
-    * Method searching for a value which type is of JsonValue.NUMBER. Then halve the value and add it to the builder-object.
-    * If the type of value is equal to JsonValue.OBJECT or JsonValue.ARRAY it starts a recursion and going a level deeper.
-    * Else if none of the given types is suitable to the value type then just change nothing and add it to the builder-object.
+    * Method which halves numeric values of a "salary" key and adds it to the builder object.
+    * If it encounters a value of type json object or json array recursively goes deeper and searches for numeric values.
+    * Otherwise if none of the given types match the value type nothing is changed and the key-value pair is added to the builder-object.
     *
     * @param builder An object builder to which to add to
     * @param key     A key for the input value

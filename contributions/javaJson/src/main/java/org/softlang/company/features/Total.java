@@ -22,10 +22,9 @@ public class Total
    }
 
    /**
-    * Method searching for a value which type is of JsonValue.NUMBER. If the key of the given value is equals to SALARY the amount of val1 is added to sum.
-    * If the type of value is equal to JsonValue.OBJECT or JsonValue.ARRAY it iterates over array items or inner JSON objects and
-    * starts a recursion to determine total salary of lower levels and adding it to sum.
-    * All other values which are not suitable to the given value type are skipped.
+    * Method which adds up numeric values of a "salary" key.
+    * If it encounters a value of type json object or json array recursively goes deeper and searches for numeric values to determine the total salary.
+    * Otherwise if none of the given types match the value type the key-value pair is skipped.
     *
     * @param key1 key for the value at hand
     * @param val1 JSON value to traverse

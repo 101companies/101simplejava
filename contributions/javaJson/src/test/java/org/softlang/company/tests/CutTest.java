@@ -22,7 +22,7 @@ public class CutTest
    private JsonObject companyWithNegSalaryObj;
 
    /**
-    * Initialization of JSON object for tests
+    * Initialization of a JSON object for tests
     *
     * @throws IOException
     */
@@ -36,7 +36,8 @@ public class CutTest
    }
 
    /**
-    * Normal test for reading a sample company JSON, determining the total salary of it twice while the second value got cut before.
+    * Normal test for cutting salaries of a sample company JSON.
+    * The total salary "total1" is compared to the total salary after it has been cut "total2".
     * It's expected that total2 should be the half of total1 after executing the cut method.
     */
 
@@ -49,8 +50,8 @@ public class CutTest
    }
 
    /**
-    * Edge test for reading a sample company JSON, determining the total salary of it twice while the second value got cut before.
-    * It's expected that total2 should be the half of total1 after executing the cut method.
+    * Edge test for cutting the salary of a company with zero salary.
+    * The expected result is zero.
     */
 
    @Test
@@ -61,7 +62,7 @@ public class CutTest
    }
 
    /**
-    *
+    * Error test for cutting the salary of a company with negative salary which throws an Arithmetic Exception.
     */
 
    @Test(expected = ArithmeticException.class)

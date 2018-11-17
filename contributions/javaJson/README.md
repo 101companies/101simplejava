@@ -37,6 +37,7 @@ having them locally saved.
 ## Architecture: 
 The contribution is built with the gradle build system so it corresponds to its standard architecture.
 Classes for production are localed in the main directory and classes for test are localed in the test directory.
+Json files are found in the inputs directory.
 
 ## Usage: 
 This contribution is built using Gradle, check [this](https://docs.gradle.org/current/userguide/embedding.html) site for an offical plugin for your IDE. 

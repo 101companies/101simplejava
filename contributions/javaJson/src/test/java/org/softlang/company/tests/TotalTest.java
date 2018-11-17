@@ -46,7 +46,7 @@ public class TotalTest
    }
 
    /**
-    *
+    * Edge test for determining the total salary of a JSON object with zero salary.
     */
 
    @Test
@@ -57,12 +57,12 @@ public class TotalTest
    }
 
    /**
-    *
+    * Error test for determining the total salary of a JSON object with negative salary, which throws an Arithmetic Exception.
     */
 
    @Test(expected = ArithmeticException.class)
    public void testTotalErrorCase()
    {
-      double total = total(companyWithNegSalaryObj);
+      total(companyWithNegSalaryObj);
    }
 }

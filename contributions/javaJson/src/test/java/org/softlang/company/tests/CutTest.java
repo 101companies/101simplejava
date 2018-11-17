@@ -68,6 +68,6 @@ public class CutTest
    @Test(expected = ArithmeticException.class)
    public void testCutErrorCase()
    {
-      double total = total(cut(companyWithNegSalaryObj));
+      total(cut(companyWithNegSalaryObj));
    }
 }

@@ -30,8 +30,10 @@ public class Total
     * @param key1 key for the value at hand
     * @param val1 JSON value to traverse
     * @return salary total
+    *
+    * @throws ArithmeticException when a salary is negative
     */
-   private static double total(String key1, JsonValue val1)
+   private static double total(String key1, JsonValue val1) throws ArithmeticException
    {
       double sum = 0;
 
@@ -42,7 +44,14 @@ public class Total
             {
                // Aggregate salaries
                Double salary = ((JsonNumber) val1).doubleValue();
-               sum += salary;
+               if( salary < 0 )
+               {
+                  throw new ArithmeticException();
+               }
+               else
+               {
+                  sum += salary;
+               }
             }
             // Otherwise skip numbers
             break;

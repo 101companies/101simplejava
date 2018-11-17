@@ -50,8 +50,10 @@ public class Cut
     * @param builder An object builder to which to add to
     * @param key     A key for the input value
     * @param val     The input value
+    *
+    * @throws ArithmeticException when a salary is negative
     */
-   private static void cut(JsonObjectBuilder builder, String key, JsonValue val)
+   private static void cut(JsonObjectBuilder builder, String key, JsonValue val) throws ArithmeticException
    {
       switch( val.getValueType() )
       {
@@ -60,7 +62,14 @@ public class Cut
             if( key.equals(SALARY) )
             // Halve salary
             {
-               num /= 2;
+               if( num < 0 )
+               {
+                  throw new ArithmeticException();
+               }
+               else
+               {
+                  num /= 2;
+               }
             }
             builder.add(key, num);
             break;
@@ -77,7 +86,7 @@ public class Cut
    }
 
    /**
-    * Method decides depending on the value type which cut-method should be executed.
+    * Method decides depending on the value type which cut-method should be executed and adds the result to the builder-object.
     *
     * @param builder An array builder to which to add to
     * @param val     The input value

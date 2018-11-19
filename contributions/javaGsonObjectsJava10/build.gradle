@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'org.softlang.company'
+sourceCompatibility = JavaVersion.VERSION_1_10
+targetCompatibility = JavaVersion.VERSION_1_10
+version = '1.0.0'
+
+// Implementation specifics
+// This implementation uses JUnit for testing
+dependencies {
+	compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.3.1'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'
+}
+// Additional cleanup for outputs
+clean {
+	dependsOn cleanEclipse
+	doFirst {
+		delete 'outputs'
+	}
+}
+// JUnit 5 support
+test {
+    useJUnitPlatform()
+}

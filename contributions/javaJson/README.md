@@ -44,10 +44,11 @@ This contribution is built using Gradle, check [this](https://docs.gradle.org/cu
 When using an official Plugin, just download this repo and import the contribution with your IDE.
 
 ## Metadata: 
-      Namespace:javaJson
-      Namespace:Java10
-      Namespace:javax.json
-      Namespace:Lambda and Stream API
+      Contribution:javaJson
+      Language:Java10
+      Technolog:javax.json
+      Technology:Lambda and Stream API
+      Technology:Fluent API
 
 See also: [javax.json documentation](https://docs.oracle.com/javaee/7/api/javax/json/package-summary.html), [java stream API documentation](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html), [java lambda expressions tutorial](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
 

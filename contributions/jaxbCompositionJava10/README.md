@@ -1,6 +1,6 @@
 == Headline ==
 
-[[Object-XML mapping]] with [[Technology:JAXB|]] and newly incorporated [[Language:Java 8|]] [[Namespace:Feature]]s
+[[Object-XML mapping]] with [[Technology:JAXB|]] and new [[Language:Java|]]8 [[Namespace:Feature]]s
 
 == Characteristics ==
 

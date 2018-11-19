@@ -5,6 +5,7 @@
 *.jar
 *.war
 *.ear
+.DS_Store
 
 # Exception for gradle-wrapper
 !tools/gradlew-simplejava/wrapper.jar

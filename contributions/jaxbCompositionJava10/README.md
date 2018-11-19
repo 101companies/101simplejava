@@ -1,10 +1,10 @@
 == Headline ==
 
-[[Object-XML mapping]] with [[Technology:JAXB|]] and new [[Language:Java|]]8 [[Namespace:Feature]]s
+[[Object-XML mapping]] with [[Technology:JAXB|]] and [Language:Java|]]8 [[Namespace:Feature]]s
 
 == Characteristics ==
 
-This contribution is an overhaul of [[Contribution:jaxbComposition]] which applies new [[Namespace:Feature]]s introduced with [[Language:Java 8|]] such as [[Feature:Lambda Expressions]], [[Feature:Method references]] and [[Feature:Streams]]. The general idea behind this modernization is to update all necessary project dependencies, improve code readability and represent code in a more functional fashion by applying the newly introduced [[Language:Java 8|]] [[Namespace:Feature]]s.
+For the overall motivation of exercising [[Technology:JAXB]] see [[Contribution:jaxbComposition]]. This contribution is an overhaul of [[Contribution:jaxbComposition]] by applying new [[Namespace:Feature]]s introduced with [[Language:Java 8|]] such as [[Feature:Lambda Expressions]], [[Feature:Method references]] and [[Feature:Streams]]. The general idea behind this modernization is to update all necessary project dependencies, improve code readability and represent code in a more functional fashion by applying the aforementioned features.
 
 == Illustration ==
 

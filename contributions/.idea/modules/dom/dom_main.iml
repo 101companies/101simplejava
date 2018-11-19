@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":dom:main" external.linked.project.path="$MODULE_DIR$/../../../dom" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="org.softlang.company" external.system.module.type="sourceSet" external.system.module.version="1.0.0" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+    <output url="file://$MODULE_DIR$/../../../dom/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../dom/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../dom/src/main/java" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.w3c:dom:2.3.0-jaxb-1.0.6" level="project" />
+  </component>
+</module>

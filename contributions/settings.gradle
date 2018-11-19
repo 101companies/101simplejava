@@ -48,3 +48,5 @@ include 'rxjava'
 include 'sax'
 include 'xom'
 include 'xpathAPI'
+include 'javaJsonJava10'
+

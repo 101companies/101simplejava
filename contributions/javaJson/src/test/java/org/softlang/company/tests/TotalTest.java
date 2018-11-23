@@ -11,17 +11,17 @@ import org.junit.Test;
 
 public class TotalTest {
 
-    private JsonObject jsonObject;
- 
-    @Before
-    public void init() throws IOException {
-    	jsonObject = parseCompany(sampleCompany);
-    }
+   private JsonObject jsonObject;
 
-    @Test
-    public void testTotal() {
-        double total = total(jsonObject);
-        assertEquals(326927.0, total, 0.0);
-    }
+   @Before
+   public void init() throws IOException {
+      jsonObject = parseCompany(sampleCompany);
+   }
+
+   @Test
+   public void testTotal() {
+      double total = total(jsonObject);
+      assertEquals(326927.0, total, 0.0);
+   }
 
 }

@@ -12,18 +12,18 @@ import org.junit.Test;
 
 public class CutTest {
 
-    private JsonObject jsonObject;
-    
-    @Before
-    public void init() throws IOException {
-    	jsonObject = parseCompany(sampleCompany);
-    }
+   private JsonObject jsonObject;
 
-	@Test
-	public void testCut() {
-        double total1 = total(jsonObject);
-        double total2 = total(cut(jsonObject));
-		assertEquals(total1/2, total2, 0.0);
-	}
+   @Before
+   public void init() throws IOException {
+      jsonObject = parseCompany(sampleCompany);
+   }
+
+   @Test
+   public void testCut() {
+      double total1 = total(jsonObject);
+      double total2 = total(cut(jsonObject));
+      assertEquals(total1/2, total2, 0.0);
+   }
 
 }

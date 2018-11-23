@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":javaParseLib" external.linked.project.path="$MODULE_DIR$/../../../javaParseLib" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="org.softlang.company" external.system.module.version="1.0.0" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../javaParseLib">
+      <excludeFolder url="file://$MODULE_DIR$/../../../javaParseLib/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../javaParseLib/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../javaParseLib/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

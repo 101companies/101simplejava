@@ -7,11 +7,11 @@ import org.junit.Test;
 
 public class ParsingTest {
 
-    public static String sampleCompany = "inputs" + File.separator + "sampleCompany.json";
+   public static String sampleCompany = "inputs" + File.separator + "sampleCompany.json";
 
-    @Test
-    public void testParsing() throws IOException {
-        parseCompany(sampleCompany);
-    }
+   @Test
+   public void testParsing() throws IOException {
+      parseCompany(sampleCompany);
+   }
 
 }

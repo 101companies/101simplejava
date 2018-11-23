@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":xom:main" external.linked.project.path="$MODULE_DIR$/../../../xom" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="org.softlang.company" external.system.module.type="sourceSet" external.system.module.version="1.0.0" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+    <output url="file://$MODULE_DIR$/../../../xom/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../xom/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../xom/src/main/java" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: xom:xom:1.2.5" level="project" />
+    <orderEntry type="library" name="Gradle: xerces:xercesImpl:2.8.0" level="project" />
+    <orderEntry type="library" name="Gradle: xalan:xalan:2.7.0" level="project" />
+  </component>
+</module>
